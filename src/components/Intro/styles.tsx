@@ -114,7 +114,7 @@ export const ScrollArrowContainer = styled.button`
 export const DragNote = styled.span`
   position: absolute;
   bottom: 30%;
-  left: 40%;
+  left: calc(50% - 104px);
   ${flexRow};
   gap: 4px;
   opacity: 0;
