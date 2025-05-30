@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import theme from './theme';
 
 export const removeScrollBar = css`
@@ -38,4 +38,26 @@ export const desktopOnly = css`
   ${theme.media('sm')`
     display: initial;
   `}
+`;
+
+// animations
+
+export const fadeIn = keyframes`
+  
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+`;
+
+export const slowTransition = css`
+  transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
 `;
