@@ -42,26 +42,32 @@ export const ContentWrapper = styled.div`
 export const SoupBowl = styled(Image)`
   position: absolute;
   top: 36.7%;
-  left: calc(50% - 175px);
+  /*  left: 25%; */
   height: auto;
   width: 90%;
   z-index: 0;
 
   ${({ theme }) => theme.media('xs')`
-    width: 350px;
+    width: 450px;
+
+    left: calc(50% - 225px);
+    top: 36.7%;
   `}
 `;
 
 export const SoupBowlFront = styled(Image)`
   position: absolute;
-  top: 42%;
-  left: calc(50% - 175px);
+  top: 45%;
+  /* left: 25%; */
   height: auto;
   width: 90%;
   z-index: 2;
 
   ${({ theme }) => theme.media('xs')`
-    width: 350px;
+ 
+    width: 450px;
+    left: calc(50% - 225px);
+    top: 46%;
   `}
 `;
 
@@ -99,7 +105,7 @@ export const ScrollArrowContainer = styled.button`
     width: 25px !important;
     height: 25px !important;
     path {
-      fill: ${({ theme }) => theme.colors.fg.default};
+      fill: ${({ theme }) => theme.colors.accent.yellow};
     }
   }
 
@@ -113,8 +119,8 @@ export const ScrollArrowContainer = styled.button`
 
 export const DragNote = styled.span`
   position: absolute;
-  bottom: 30%;
-  left: calc(50% - 104px);
+  bottom: 23%;
+  left: calc(50% - 120.5px);
   ${flexRow};
   gap: 4px;
   opacity: 0;
