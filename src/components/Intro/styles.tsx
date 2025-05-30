@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
 import Image from 'next/image';
 import Typography from '../Typography/Typography';
-import { fadeIn, flexColumn } from '@app/styles/mixins';
+import { fadeIn, fastTransition, flexColumn, flexRow, slowTransition } from '@app/styles/mixins';
 import { IoIosArrowDown } from 'react-icons/io';
+import { FaInfo } from 'react-icons/fa';
 
 export const IntroContainer = styled.div`
   background: ${({ theme }) => theme.colors.bg.default};
@@ -68,18 +69,66 @@ export const LettersLayer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   z-index: 1;
 `;
 
 export const Letter = styled(Typography)`
   opacity: 0;
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.accent.yellow};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent.flamingo};
+  }
+`;
+
+export const ScrollArrowContainer = styled.button`
+  ${flexColumn};
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5%;
+  left: 49%;
+  opacity: 0;
+  animation: ${fadeIn} 1.5s forwards 8s;
+  -webkit-animation: ${fadeIn} 1.5s forwards 8s;
+  & svg {
+    width: 25px !important;
+    height: 25px !important;
+    path {
+      fill: ${({ theme }) => theme.colors.fg.default};
+    }
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    svg > path {
+      fill: ${({ theme }) => theme.colors.accent.yellow};
+    }
+  }
+`;
+
+export const DragNote = styled.span`
+  position: absolute;
+  bottom: 30%;
+  left: 40%;
+  ${flexRow};
+  gap: 4px;
+  opacity: 0;
+
+  animation: ${fadeIn} 1.5s forwards 5.75s;
+  -webkit-animation: ${fadeIn} 1.5s forwards 5.75s;
+`;
+
+export const InfoIcon = styled(FaInfo)`
+  && {
+    padding: 2px !important;
+    border: 1px solid white !important;
+    border-radius: 100px;
+  }
 `;
 
 export const ScrollArrowFadeElement = styled(IoIosArrowDown)`
@@ -116,32 +165,6 @@ export const ScrollArrowFadeElement = styled(IoIosArrowDown)`
     }
     100% {
       transform: translateY(-8px);
-    }
-  }
-`;
-
-export const ScrollArrowContainer = styled.button`
-  ${flexColumn};
-  justify-content: center;
-  cursor: pointer;
-  position: absolute;
-  bottom: 5%;
-  left: 49%;
-  opacity: 0;
-  animation: ${fadeIn} 1.5s forwards 5.75s;
-  -webkit-animation: ${fadeIn} 1.5s forwards 5.75s;
-  & svg {
-    width: 25px !important;
-    height: 25px !important;
-    path {
-      fill: ${({ theme }) => theme.colors.fg.default};
-    }
-  }
-
-  &:hover {
-    transform: scale(1.2);
-    svg > path {
-      fill: ${({ theme }) => theme.colors.accent.yellow};
     }
   }
 `;

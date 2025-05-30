@@ -61,3 +61,11 @@ export const slowTransition = css`
   -moz-transition: all 0.6s ease-in-out;
   -o-transition: all 0.6s ease-in-out;
 `;
+
+export const fastTransition = css`
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+`;
+

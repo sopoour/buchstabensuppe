@@ -8,6 +8,8 @@ import {
   LettersLayer,
   Letter,
   SoupBowlFront,
+  DragNote,
+  InfoIcon,
 } from './styles';
 import { IoIosArrowDown } from 'react-icons/io';
 import { scroller } from 'react-scroll';
@@ -15,6 +17,11 @@ import Image from 'next/image';
 import Bowl from './assets/bowl.png';
 import BowlFront from './assets/bowl-front.png';
 import gsap from 'gsap';
+import Draggable from 'gsap/dist/Draggable';
+import Typography from '../Typography/Typography';
+import { FaInfo } from 'react-icons/fa';
+
+gsap.registerPlugin(Draggable);
 
 const genCharArray = (charA: string, charZ: string) => {
   var a = [],
@@ -26,7 +33,12 @@ const genCharArray = (charA: string, charZ: string) => {
   return a;
 };
 
-const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
+const LETTERS = [
+  ...genCharArray('a', 'z'),
+  ...genCharArray('a', 'z'),
+  ...genCharArray('a', 'z'),
+  ...Array.from('buchstabensuppe'),
+];
 
 const Intro: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -44,7 +56,14 @@ const Intro: FC = () => {
       const startY = -100 - Math.random() * 300;
       const gaussianRandom = 0.5 + 0.35 * (Math.random() + Math.random() - 1);
       const targetX = bowlRect.left + gaussianRandom * (bowlRect.width - 10);
-      const targetY = bowlRect.top + bowlRect.height / 7;
+      const targetY = bowlRect.top + bowlRect.height / 12;
+
+      Draggable.create(el, {
+        type: 'x,y', // Drag along x and y axis
+        edgeResistance: 0.65,
+        bounds: window, // limit dragging within window boundaries
+        inertia: true, // smooth dragging with inertia
+      });
 
       gsap.set(el, {
         x: startX,
@@ -53,9 +72,9 @@ const Intro: FC = () => {
       });
 
       gsap.to(el, {
-        duration: 5 + Math.random(),
+        duration: 7 + Math.random(),
         x: targetX,
-        y: targetY + (Math.random() * 10 - 5),
+        y: targetY + (Math.random() * 15 - 5),
         rotation: 0,
         opacity: 1,
         ease: 'bounce.out',
@@ -85,6 +104,7 @@ const Intro: FC = () => {
           height={Bowl.height / 3}
           alt="Suppenschale"
           ref={bowlRef}
+          priority
         />
         <LettersLayer>
           {LETTERS.map((char, i) => (
@@ -99,6 +119,11 @@ const Intro: FC = () => {
           height={BowlFront.height / 3}
           alt="Suppenschale-front"
         />
+        <DragNote>
+          <InfoIcon />
+          <Typography fontSize="10px">Du kannst die Buchstaben bewegen</Typography>
+        </DragNote>
+        <DragNote></DragNote>
         <ScrollArrowContainer
           onClick={() => scroller.scrollTo('projects', { smooth: true, duration: 800 })}
           title="Scroll down button"
