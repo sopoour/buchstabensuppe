@@ -119,38 +119,51 @@ const Intro: FC = () => {
             });
           },
         });
+
+        // Fly out if part of buchstabensuppe
+        /* LETTERS.forEach((char, i) => {
+          if (!BUCHSTABENSUPPE.includes(char)) return;
+
+          const targetIndex = BUCHSTABENSUPPE.indexOf(char);
+          const navTarget = document?.getElementById('navigation-header');
+          const elb = letterRefs.current[i];
+
+          if (!elb || !navTarget) return;
+
+          const targetRect = navTarget.getBoundingClientRect();
+          const elRect = elb.getBoundingClientRect();
+
+          const dx = targetRect.left - elRect.left;
+          const dy = targetRect.top - elRect.top;
+
+          let bs = gsap.timeline({
+            scrollTrigger: {
+              trigger: '#intro',
+              start: 0,
+              end: () => window.innerHeight * 1.2,
+              scrub: 0.6,
+            },
+          });
+
+          bs.fromTo(
+            elb,
+            {
+              x: targetX,
+              y: targetY + (Math.random() * 35 - 15),
+              scale: 0.8,
+              ease: 'power2.out',
+              zIndex: 3,
+            },
+            {
+              x: `+=${dx}`,
+              y: `+=${dy}`,
+              scale: 0.8,
+              ease: 'power2.out',
+              zIndex: 3,
+            },
+          );
+        }); */
       });
-
-      // Fly out if part of buchstabensuppe
-      /*  LETTERS.forEach((char, i) => {
-        if (!BUCHSTABENSUPPE.includes(char)) return;
-
-        const targetIndex = BUCHSTABENSUPPE.indexOf(char);
-        const navTarget = document?.getElementById('navigation-header');
-        const el = letterRefs.current[i];
-
-        if (!el || !navTarget) return;
-
-        const targetRect = navTarget.getBoundingClientRect();
-        const elRect = el.getBoundingClientRect();
-
-        const dx = targetRect.left - elRect.left;
-        const dy = targetRect.top - elRect.top;
-
-        gsap.to(el, {
-          scrollTrigger: {
-            trigger: '#scroll-anchor',
-            start: 'top center',
-            end: 'bottom top',
-            scrub: true,
-          },
-          x: `+=${dx}`,
-          y: `+=${dy}`,
-          scale: 0.8,
-          ease: 'power2.out',
-          zIndex: 3,
-        });
-      }); */
     });
 
     return () => ctx.revert();
