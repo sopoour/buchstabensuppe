@@ -107,7 +107,7 @@ const Header: React.FC = () => {
   }, []); */
 
   return (
-    <HeaderWrapper aria-label="Mobile header" id="mobile-header">
+    <HeaderWrapper aria-label="navigation header" id="navigation-header">
       <div>Logo</div>
       <Navigation>
         <div>Item 1</div>

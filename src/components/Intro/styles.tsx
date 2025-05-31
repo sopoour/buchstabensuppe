@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import Image from 'next/image';
 import Typography from '../Typography/Typography';
-import { fadeIn, fastTransition, flexColumn, flexRow, slowTransition } from '@app/styles/mixins';
+import { fadeIn, flexColumn, flexRow } from '@app/styles/mixins';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaInfo } from 'react-icons/fa';
 
@@ -10,19 +10,9 @@ export const IntroContainer = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
-`;
-
-export const ContentWrapper = styled.div`
-  ${flexColumn};
-  gap: 16px;
   margin: auto;
-  width: 100%;
   align-items: center;
-  z-index: 10;
-
-  ${({ theme }) => theme.media('sm')`
-    width: 32rem;
-  `}
+  ${flexColumn};
 `;
 
 export const SoupBowl = styled(Image)`
@@ -35,6 +25,7 @@ export const SoupBowl = styled(Image)`
 
   ${({ theme }) => theme.media('sm')`
     width: 450px;
+    left: calc(50% - 225px);
   `}
 `;
 

@@ -1,6 +1,5 @@
 import { FC, useLayoutEffect, useRef } from 'react';
 import {
-  ContentWrapper,
   ScrollArrowContainer,
   ScrollArrowFadeElement,
   IntroContainer,
@@ -13,13 +12,11 @@ import {
 } from './styles';
 import { IoIosArrowDown } from 'react-icons/io';
 import { scroller } from 'react-scroll';
-import Image from 'next/image';
 import Bowl from './assets/bowl.png';
 import BowlFront from './assets/bowl-front.png';
 import gsap from 'gsap';
 import Draggable from 'gsap/dist/Draggable';
 import Typography from '../Typography/Typography';
-import { FaInfo } from 'react-icons/fa';
 
 gsap.registerPlugin(Draggable);
 
@@ -33,11 +30,13 @@ const genCharArray = (charA: string, charZ: string) => {
   return a;
 };
 
+const BUCHSTABENSUPPE = 'buchstabensuppe';
+
 const LETTERS = [
   ...genCharArray('a', 'z'),
   ...genCharArray('a', 'z'),
   ...genCharArray('a', 'z'),
-  ...Array.from('buchstabensuppe'),
+  ...Array.from(BUCHSTABENSUPPE),
 ];
 
 const Intro: FC = () => {
@@ -76,6 +75,7 @@ const Intro: FC = () => {
         },
       );
 
+      // FLY IN letters into bowl
       letterRefs.current.forEach((el, i) => {
         if (!el) return;
 
@@ -120,51 +120,80 @@ const Intro: FC = () => {
           },
         });
       });
+
+      // Fly out if part of buchstabensuppe
+      /*  LETTERS.forEach((char, i) => {
+        if (!BUCHSTABENSUPPE.includes(char)) return;
+
+        const targetIndex = BUCHSTABENSUPPE.indexOf(char);
+        const navTarget = document?.getElementById('navigation-header');
+        const el = letterRefs.current[i];
+
+        if (!el || !navTarget) return;
+
+        const targetRect = navTarget.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+
+        const dx = targetRect.left - elRect.left;
+        const dy = targetRect.top - elRect.top;
+
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: '#scroll-anchor',
+            start: 'top center',
+            end: 'bottom top',
+            scrub: true,
+          },
+          x: `+=${dx}`,
+          y: `+=${dy}`,
+          scale: 0.8,
+          ease: 'power2.out',
+          zIndex: 3,
+        });
+      }); */
     });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <IntroContainer>
-      <ContentWrapper id="intro">
-        <SoupBowl
-          src={Bowl.src}
-          width={Bowl.width / 3}
-          height={Bowl.height / 3}
-          alt="Suppenschale"
-          ref={bowlRef}
-          priority
-          id="soup-bowl"
-        />
-        <LettersLayer>
-          {LETTERS.map((char, i) => (
-            <Letter key={i} ref={(el) => (letterRefs.current[i] = el)}>
-              {char}
-            </Letter>
-          ))}
-        </LettersLayer>
-        <SoupBowlFront
-          src={BowlFront.src}
-          width={BowlFront.width / 3}
-          height={BowlFront.height / 3}
-          alt="Suppenschale-front"
-          id="soup-bowl-front"
-        />
-        <DragNote>
-          <InfoIcon />
-          <Typography fontSize="10px">Erstelle dein eigenes Wort via Drag & Drop</Typography>
-        </DragNote>
-        <DragNote></DragNote>
-        <ScrollArrowContainer
-          onClick={() => scroller.scrollTo('projects', { smooth: true, duration: 800 })}
-          title="Scroll down button"
-        >
-          <IoIosArrowDown />
-          <ScrollArrowFadeElement />
-          <ScrollArrowFadeElement />
-        </ScrollArrowContainer>
-      </ContentWrapper>
+    <IntroContainer id="intro">
+      <SoupBowl
+        src={Bowl.src}
+        width={Bowl.width / 3}
+        height={Bowl.height / 3}
+        alt="Suppenschale"
+        ref={bowlRef}
+        priority
+        id="soup-bowl"
+      />
+      <LettersLayer>
+        {LETTERS.map((char, i) => (
+          <Letter key={i} ref={(el) => (letterRefs.current[i] = el)}>
+            {char}
+          </Letter>
+        ))}
+      </LettersLayer>
+      <SoupBowlFront
+        src={BowlFront.src}
+        width={BowlFront.width / 3}
+        height={BowlFront.height / 3}
+        alt="Suppenschale-front"
+        id="soup-bowl-front"
+      />
+      <DragNote>
+        <InfoIcon />
+        <Typography fontSize="10px">Erstelle dein eigenes Wort via Drag & Drop</Typography>
+      </DragNote>
+      <DragNote></DragNote>
+      <ScrollArrowContainer
+        onClick={() => scroller.scrollTo('projects', { smooth: true, duration: 800 })}
+        title="Scroll down button"
+      >
+        <IoIosArrowDown />
+        <ScrollArrowFadeElement />
+        <ScrollArrowFadeElement />
+      </ScrollArrowContainer>
     </IntroContainer>
   );
 };
