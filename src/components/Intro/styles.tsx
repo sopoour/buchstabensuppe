@@ -7,23 +7,9 @@ import { FaInfo } from 'react-icons/fa';
 
 export const IntroContainer = styled.div`
   background: ${({ theme }) => theme.colors.bg.default};
-  display: flex;
   position: relative;
-  flex-flow: column wrap;
   height: 100vh;
   width: 100%;
-  transition: all 0.75s ease-in-out;
-  -webkit-transition: all 0.75s ease-in-out;
-  gap: 16px;
-  opacity: 1;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-
-  > svg {
-    position: fixed;
-    flex-shrink: 0;
-    opacity: 0;
-  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -41,34 +27,20 @@ export const ContentWrapper = styled.div`
 
 export const SoupBowl = styled(Image)`
   position: absolute;
-  top: 36.7%;
-  /*  left: 25%; */
+  bottom: 29%;
   height: auto;
   width: 90%;
   z-index: 0;
+  opacity: 0;
 
-  ${({ theme }) => theme.media('xs')`
+  ${({ theme }) => theme.media('sm')`
     width: 450px;
-
-    left: calc(50% - 225px);
-    top: 36.7%;
   `}
 `;
 
-export const SoupBowlFront = styled(Image)`
-  position: absolute;
-  top: 45%;
-  /* left: 25%; */
-  height: auto;
-  width: 90%;
+export const SoupBowlFront = styled(SoupBowl)`
   z-index: 2;
-
-  ${({ theme }) => theme.media('xs')`
- 
-    width: 450px;
-    left: calc(50% - 225px);
-    top: 46%;
-  `}
+  pointer-events: none;
 `;
 
 export const LettersLayer = styled.div`
@@ -97,7 +69,7 @@ export const ScrollArrowContainer = styled.button`
   cursor: pointer;
   position: absolute;
   bottom: 5%;
-  left: 49%;
+  left: 45%;
   opacity: 0;
   animation: ${fadeIn} 1.5s forwards 8s;
   -webkit-animation: ${fadeIn} 1.5s forwards 8s;
@@ -115,6 +87,10 @@ export const ScrollArrowContainer = styled.button`
       fill: ${({ theme }) => theme.colors.accent.yellow};
     }
   }
+
+  ${({ theme }) => theme.media('sm')`
+     left: 49%;
+  `}
 `;
 
 export const DragNote = styled.span`

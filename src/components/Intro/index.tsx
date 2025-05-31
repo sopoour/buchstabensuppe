@@ -83,7 +83,7 @@ const Intro: FC = () => {
         const startY = -100 - Math.random() * 300;
         const gaussianRandom = 0.5 + 0.4 * (Math.random() + Math.random() - 1);
         const targetX = bowlRect.left + gaussianRandom * (bowlRect.width - 10);
-        const targetY = bowlRect.top + bowlRect.height / 12;
+        const targetY = bowlRect.top + bowlRect.height / 11;
 
         Draggable.create(el, {
           type: 'x,y', // Drag along x and y axis
