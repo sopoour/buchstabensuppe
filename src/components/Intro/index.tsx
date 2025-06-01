@@ -182,6 +182,7 @@ const Intro: FC = () => {
       />
       <LettersLayer>
         {LETTERS.map((char, i) => (
+          //@ts-ignore
           <Letter key={i} ref={(el) => (letterRefs.current[i] = el)}>
             {char}
           </Letter>
