@@ -4,6 +4,9 @@ import Typography from '../Typography/Typography';
 import { fadeIn, flexColumn, flexRow } from '@app/styles/mixins';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaInfo } from 'react-icons/fa';
+import { HEADER_HEIGHT } from '../layout/Header';
+
+const height = HEADER_HEIGHT + 'px';
 
 export const IntroContainer = styled.div`
   background: ${({ theme }) => theme.colors.bg.default};
@@ -17,7 +20,7 @@ export const IntroContainer = styled.div`
 
 export const SoupBowl = styled(Image)`
   position: absolute;
-  bottom: 29%;
+  bottom: calc(20% + ${height});
   height: auto;
   width: 90%;
   z-index: 0;
@@ -36,6 +39,7 @@ export const SoupBowlFront = styled(SoupBowl)`
 
 export const LettersLayer = styled.div`
   position: absolute;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 1;
@@ -54,12 +58,16 @@ export const Letter = styled(Typography)`
   }
 `;
 
+export const BSLetter = styled(Letter)`
+  opacity: 0;
+`;
+
 export const ScrollArrowContainer = styled.button`
   ${flexColumn};
   justify-content: center;
   cursor: pointer;
   position: absolute;
-  bottom: 5%;
+  bottom: calc(5% + ${height});
   left: 45%;
   opacity: 0;
   animation: ${fadeIn} 1.5s forwards 8s;
@@ -86,7 +94,7 @@ export const ScrollArrowContainer = styled.button`
 
 export const DragNote = styled.span`
   position: absolute;
-  bottom: 23%;
+  bottom: calc(15% + ${height});
   left: calc(50% - 120.5px);
   ${flexRow};
   gap: 4px;

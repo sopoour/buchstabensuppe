@@ -9,6 +9,7 @@ import {
   SoupBowlFront,
   DragNote,
   InfoIcon,
+  BSLetter,
 } from './styles';
 import { IoIosArrowDown } from 'react-icons/io';
 import { scroller } from 'react-scroll';
@@ -16,9 +17,14 @@ import Bowl from './assets/bowl.png';
 import BowlFront from './assets/bowl-front.png';
 import gsap from 'gsap';
 import Draggable from 'gsap/dist/Draggable';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import SplitType from 'split-type';
 import Typography from '../Typography/Typography';
+import { useMedia } from '@app/hooks/useMedia';
+import { Breakpoints } from '@app/styles/media';
+import { HEADER_HEIGHT } from '../layout/Header';
 
-gsap.registerPlugin(Draggable);
+gsap.registerPlugin(Draggable, ScrollTrigger);
 
 const genCharArray = (charA: string, charZ: string) => {
   var a = [],
@@ -42,6 +48,8 @@ const LETTERS = [
 const Intro: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const bowlRef = useRef<HTMLImageElement | null>(null);
+  const bsRef = useRef<HTMLParagraphElement | null>(null);
+  const isDesktop = useMedia(Breakpoints.xs);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -49,6 +57,7 @@ const Intro: FC = () => {
 
       const bowlRect = bowlRef.current.getBoundingClientRect();
 
+      // Appearance of main bowl
       gsap.fromTo(
         '#soup-bowl',
         {
@@ -63,6 +72,7 @@ const Intro: FC = () => {
         },
       );
 
+      // Hidden appearance of front side of bowl
       gsap.fromTo(
         '#soup-bowl-front',
         {
@@ -75,7 +85,7 @@ const Intro: FC = () => {
         },
       );
 
-      // FLY IN letters into bowl
+      // FLY IN animation of letters into bowl
       letterRefs.current.forEach((el, i) => {
         if (!el) return;
 
@@ -83,8 +93,9 @@ const Intro: FC = () => {
         const startY = -100 - Math.random() * 300;
         const gaussianRandom = 0.5 + 0.4 * (Math.random() + Math.random() - 1);
         const targetX = bowlRect.left + gaussianRandom * (bowlRect.width - 10);
-        const targetY = bowlRect.top + bowlRect.height / 11;
+        const targetY = bowlRect.top - HEADER_HEIGHT + bowlRect.height / 11;
 
+        // Make letters draggable out of bowl
         Draggable.create(el, {
           type: 'x,y', // Drag along x and y axis
           edgeResistance: 0.65,
@@ -92,12 +103,14 @@ const Intro: FC = () => {
           inertia: true, // smooth dragging with inertia
         });
 
+        // Random start point for each letter
         gsap.set(el, {
           x: startX,
           y: startY,
           rotation: Math.random() * 360,
         });
 
+        // Calculated end point based on a bit of randomness but in bound of bowl
         gsap.to(el, {
           duration: 7 + Math.random(),
           x: targetX,
@@ -107,7 +120,7 @@ const Intro: FC = () => {
           ease: 'bounce.out',
           delay: i * 0.1,
           onComplete: () => {
-            // "Schwimmen" nach dem Eintauchen
+            // "Swim" animation after the letters are in the bowl
             gsap.to(el, {
               duration: 3 + Math.random(),
               x: `+=${Math.random() * 50 - 10}`,
@@ -119,55 +132,71 @@ const Intro: FC = () => {
             });
           },
         });
-
-        // Fly out if part of buchstabensuppe
-        /* LETTERS.forEach((char, i) => {
-          if (!BUCHSTABENSUPPE.includes(char)) return;
-
-          const targetIndex = BUCHSTABENSUPPE.indexOf(char);
-          const navTarget = document?.getElementById('navigation-header');
-          const elb = letterRefs.current[i];
-
-          if (!elb || !navTarget) return;
-
-          const targetRect = navTarget.getBoundingClientRect();
-          const elRect = elb.getBoundingClientRect();
-
-          const dx = targetRect.left - elRect.left;
-          const dy = targetRect.top - elRect.top;
-
-          let bs = gsap.timeline({
-            scrollTrigger: {
-              trigger: '#intro',
-              start: 0,
-              end: () => window.innerHeight * 1.2,
-              scrub: 0.6,
-            },
-          });
-
-          bs.fromTo(
-            elb,
-            {
-              x: targetX,
-              y: targetY + (Math.random() * 35 - 15),
-              scale: 0.8,
-              ease: 'power2.out',
-              zIndex: 3,
-            },
-            {
-              x: `+=${dx}`,
-              y: `+=${dy}`,
-              scale: 0.8,
-              ease: 'power2.out',
-              zIndex: 3,
-            },
-          );
-        }); */
       });
+
+      // FLY OUT animation for hidden "buchstabensuppe"
+      if (bsRef.current) {
+        const split = new SplitType(bsRef.current, { types: 'chars' });
+        const chars = split.chars;
+
+        // place word in the center of bowl behind hidden front
+        const centerX = bowlRect.left + bowlRect.width / 2;
+        const centerY = bowlRect.top - HEADER_HEIGHT + bowlRect.height / 2;
+
+        // Translate to absolute position
+        const scrollTop = window.scrollY;
+        const scrollLeft = window.scrollX;
+
+        gsap.set(bsRef.current, {
+          opacity: 1,
+          x: centerX - bsRef.current.offsetWidth / 2 + scrollLeft,
+          y: centerY - bsRef.current.offsetHeight / 2 + scrollTop,
+        });
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#intro',
+            start: 0,
+            end: () => window.innerHeight * 0.35,
+            scrub: 0.6,
+          },
+        });
+
+        gsap.set(chars, {
+          opacity: 0,
+        });
+
+        timeline
+          .to(chars, {
+            opacity: 1,
+            duration: 0.1,
+          })
+          .to(chars, {
+            y: isDesktop ? -250 : -225,
+            stagger: 0.04,
+            ease: 'back.out(1.7)',
+            duration: 1,
+          })
+
+          .to(chars, {
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power2.out',
+            fontSize: isDesktop ? '2.3rem' : '1.2rem',
+          })
+          .to(
+            '#header',
+            {
+              opacity: 1,
+              duration: 0.5,
+              ease: 'power2.out',
+            },
+            '-=1.2',
+          );
+      }
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [isDesktop]);
 
   return (
     <IntroContainer id="intro">
@@ -180,10 +209,12 @@ const Intro: FC = () => {
         priority
         id="soup-bowl"
       />
+
       <LettersLayer>
+        <BSLetter ref={bsRef}>buchstabensuppe</BSLetter>
         {LETTERS.map((char, i) => (
           //@ts-ignore
-          <Letter key={i} ref={(el) => (letterRefs.current[i] = el)}>
+          <Letter key={i} ref={(el) => (letterRefs.current[i] = el)} title={char}>
             {char}
           </Letter>
         ))}
@@ -201,7 +232,7 @@ const Intro: FC = () => {
       </DragNote>
       <DragNote></DragNote>
       <ScrollArrowContainer
-        onClick={() => scroller.scrollTo('projects', { smooth: true, duration: 800 })}
+        onClick={() => scroller.scrollTo('live', { smooth: true, duration: 800 })}
         title="Scroll down button"
       >
         <IoIosArrowDown />

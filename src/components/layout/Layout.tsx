@@ -26,10 +26,10 @@ type Props = {
 
 const Layout: FC<Props> = ({ children }) => (
   <>
-    <Intro />
     <Root>
       <Sidebar>Some content</Sidebar>
       <Header />
+      <Intro />
       <MainLayout>{children}</MainLayout>
       <Footer />
     </Root>

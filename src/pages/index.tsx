@@ -1,3 +1,4 @@
+import Intro from '@app/components/Intro';
 import MaxWidthContainer from '@app/components/MaxWidthContainer';
 import Typography from '@app/components/Typography/Typography';
 import { NextPage } from 'next';
