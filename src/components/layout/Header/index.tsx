@@ -1,20 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useSidebar from '@app/hooks/useSidebar';
-import LinkContainer from '@app/components/LinkContainer';
-import Image from 'next/image';
-import Logo from '@app/assets/logo.png';
 import {
   BurgerMenu,
   DesktopLinkContainer,
   HeaderWrapper,
   Line,
-  LogoImage,
+  LogoLetter,
   Navigation,
 } from './style';
-import { useMedia } from '@app/hooks/useMedia';
-import { Breakpoints } from '@app/styles/media';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,14 +24,7 @@ const Header: React.FC = () => {
         <div>Item 1</div>
         <div>Item 2</div>
       </Navigation>
-      <LogoImage
-        src={Logo.src}
-        width={Logo.width / 3.5}
-        height={Logo.height / 3.5}
-        alt="Logo"
-        id="logo"
-        style={{ marginRight: -25 }}
-      />
+      <LogoLetter>buchstabensuppe</LogoLetter>
       <DesktopLinkContainer />
 
       <BurgerMenu onClick={setOpen} id="burger-menu">

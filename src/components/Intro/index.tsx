@@ -171,7 +171,7 @@ const Intro: FC = () => {
             duration: 0.1,
           })
           .to(chars, {
-            y: isDesktop ? -250 : -225,
+            y: isDesktop ? -250 : -200,
             stagger: 0.04,
             ease: 'back.out(1.7)',
             duration: 1,
@@ -179,7 +179,7 @@ const Intro: FC = () => {
 
           .to(chars, {
             opacity: 0,
-            duration: 1.2,
+            duration: isDesktop ? 1.2 : 1.5,
             ease: 'power2.out',
             fontSize: isDesktop ? '2.3rem' : '1.2rem',
           })
@@ -190,7 +190,7 @@ const Intro: FC = () => {
               duration: 0.5,
               ease: 'power2.out',
             },
-            '-=1.2',
+            isDesktop ? '-=1.2' : '-=0.8',
           );
       }
     });

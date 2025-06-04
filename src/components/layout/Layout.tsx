@@ -4,20 +4,17 @@ import { styled } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from '../Sidebar';
-import Intro from '../Intro';
 
 const Root = styled.div`
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 
 const MainLayout = styled.main`
-  max-width: 1000px;
-  padding: 48px 20px;
   flex: 1;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
 `;
 
 type Props = {
@@ -29,7 +26,6 @@ const Layout: FC<Props> = ({ children }) => (
     <Root>
       <Sidebar>Some content</Sidebar>
       <Header />
-      <Intro />
       <MainLayout>{children}</MainLayout>
       <Footer />
     </Root>

@@ -1,8 +1,6 @@
 import { css, styled } from 'styled-components';
-import { desktopOnly, flexColumn, flexRow } from '@app/styles/mixins';
+import { flexColumn, flexRow } from '@app/styles/mixins';
 import LinkContainer from '@app/components/LinkContainer';
-import Image from 'next/image';
-import theme from '@app/styles/theme';
 
 export const HeaderWrapper = styled.div<{ headerHeight: number }>`
   display: flex;
@@ -91,11 +89,15 @@ export const DesktopLinkContainer = styled(LinkContainer)`
   `}
 `;
 
-export const LogoImage = styled(Image)`
-  width: 50%;
-  height: auto;
+export const LogoLetter = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.accent.yellow};
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0;
+
   ${({ theme }) => theme.media('sm')`
-        width: initial;
-        height: auto;
+       font-size: 2.3rem;
+       margin-right: -30px;
   `}
 `;

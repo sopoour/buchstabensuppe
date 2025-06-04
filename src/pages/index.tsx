@@ -27,16 +27,19 @@ const DetailContainer = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <Root>
-      <TopWrapper>
-        <Typography textalign="center" as="h1">
-          Some title
-        </Typography>
-      </TopWrapper>
-      <DetailContainer>
-        <Typography textalign="center">Some text</Typography>
-      </DetailContainer>
-    </Root>
+    <>
+      <Intro />
+      <Root>
+        <TopWrapper>
+          <Typography textalign="center" as="h1">
+            Some title
+          </Typography>
+        </TopWrapper>
+        <DetailContainer>
+          <Typography textalign="center">Some text</Typography>
+        </DetailContainer>
+      </Root>
+    </>
   );
 };
 
