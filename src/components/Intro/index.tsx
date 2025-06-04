@@ -190,7 +190,7 @@ const Intro: FC = () => {
               duration: 0.5,
               ease: 'power2.out',
             },
-            isDesktop ? '-=1.2' : '-=0.8',
+            isDesktop ? '-=1' : '-=0.8',
           );
       }
     });
