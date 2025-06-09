@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
 import { flexColumn, flexRow } from '@app/styles/mixins';
 import LinkContainer from '@app/components/LinkContainer';
+import Navigation from '../Navigation';
 
 export const HeaderWrapper = styled.div<{ headerHeight: number }>`
   display: flex;
@@ -73,20 +74,22 @@ export const BurgerMenu = styled.button`
   `}
 `;
 
-export const Navigation = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.media('sm')`
-    ${flexRow}
-    gap: 12px;
+export const NavigationDesktop = styled(Navigation)`
+  && {
+    display: none;
+    ${({ theme }) => theme.media('sm')`
+    display: flex;
   `}
+  }
 `;
 
 export const DesktopLinkContainer = styled(LinkContainer)`
-  display: none;
-  ${({ theme }) => theme.media('sm')`
+  && {
+    display: none;
+    ${({ theme }) => theme.media('sm')`
        display: flex;
   `}
+  }
 `;
 
 export const LogoLetter = styled.p`

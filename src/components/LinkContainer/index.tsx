@@ -29,20 +29,19 @@ const getSize = (size: Size) => {
 
 const Container = styled.span<{ hoverColour?: string; size: Size }>`
   ${flexRow};
-  gap: 16px;
-  justify-content: center;
+  gap: 32px;
   svg {
     width: ${({ size }) => getSize(size)};
     height: ${({ size }) => getSize(size)};
     transition: all 0.3s ease-in-out;
     path {
-      fill: ${({ theme }) => theme.colors.bg.soft};
+      fill: ${({ theme }) => theme.colors.fg.default};
     }
     &:hover {
       cursor: pointer;
       transform: scale(1.1);
       path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.green};
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.yellow};
       }
     }
 

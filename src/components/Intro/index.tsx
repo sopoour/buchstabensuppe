@@ -49,7 +49,7 @@ const Intro: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const bowlRef = useRef<HTMLImageElement | null>(null);
   const bsRef = useRef<HTMLParagraphElement | null>(null);
-  const isDesktop = useMedia(Breakpoints.xs);
+  const isDesktop = useMedia(Breakpoints.sm);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
