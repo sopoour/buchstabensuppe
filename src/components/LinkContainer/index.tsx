@@ -35,7 +35,7 @@ const Container = styled.span<{ hoverColour?: string; size: Size }>`
     height: ${({ size }) => getSize(size)};
     transition: all 0.3s ease-in-out;
     path {
-      fill: ${({ theme }) => theme.colors.fg.default};
+      fill: ${({ theme }) => theme.colors.fg.contrast};
     }
     &:hover {
       cursor: pointer;
