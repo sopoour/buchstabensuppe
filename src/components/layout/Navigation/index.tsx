@@ -52,6 +52,7 @@ const Navigation: FC<Props> = ({ className }) => {
         const navItemName = item.toLowerCase();
         return (
           <NavigationItem
+            key={navItemName}
             id={navItemName}
             activeClass="active"
             to={navItemName}
