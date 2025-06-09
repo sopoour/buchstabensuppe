@@ -97,7 +97,7 @@ export const LogoLetter = styled.p`
   margin: 0;
 
   ${({ theme }) => theme.media('sm')`
-       font-size: 2.3rem;
-       margin-right: -30px;
+       font-size: 2rem;
+      
   `}
 `;

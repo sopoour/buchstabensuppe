@@ -179,9 +179,9 @@ const Intro: FC = () => {
 
           .to(chars, {
             opacity: 0,
-            duration: isDesktop ? 1.2 : 1.5,
+            duration: 1.2,
             ease: 'power2.out',
-            fontSize: isDesktop ? '2.3rem' : '1.2rem',
+            fontSize: isDesktop ? '2rem' : '1.2rem',
           })
           .to(
             '#header',
