@@ -1,15 +1,15 @@
 import { styled } from 'styled-components';
 import Image from 'next/image';
-import Typography from '../Typography/Typography';
+import Typography from '@app/components/Typography/Typography';
 import { fadeIn, flexColumn, flexRow } from '@app/styles/mixins';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaInfo } from 'react-icons/fa';
-import { HEADER_HEIGHT } from '../layout/Header';
+import { HEADER_HEIGHT } from '@app/components/layout/Header';
 
 const height = HEADER_HEIGHT + 'px';
 
 export const IntroContainer = styled.div`
-  background: ${({ theme }) => theme.colors.bg.default};
+  background: ${({ theme }) => theme.colors.bg.contrast};
   position: relative;
   height: 100vh;
   width: 100%;
@@ -107,8 +107,9 @@ export const DragNote = styled.span`
 export const InfoIcon = styled(FaInfo)`
   && {
     padding: 2px !important;
-    border: 1px solid white !important;
+    border: 1px solid ${({ theme }) => theme.colors.fg.contrast} !important;
     border-radius: 100px;
+    color: ${({ theme }) => theme.colors.fg.contrast};
   }
 `;
 

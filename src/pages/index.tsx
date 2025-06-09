@@ -1,8 +1,9 @@
-import Intro from '@app/components/Intro';
+import Hero from '@app/components/sections/Hero';
 import MaxWidthContainer from '@app/components/MaxWidthContainer';
 import Typography from '@app/components/Typography/Typography';
 import { NextPage } from 'next';
 import styled from 'styled-components';
+import Live from '@app/components/sections/Live';
 
 const Root = styled.span`
   display: flex;
@@ -28,17 +29,8 @@ const DetailContainer = styled.div`
 const Home: NextPage = () => {
   return (
     <>
-      <Intro />
-      <Root>
-        <TopWrapper>
-          <Typography textalign="center" as="h1">
-            Some title
-          </Typography>
-        </TopWrapper>
-        <DetailContainer>
-          <Typography textalign="center">Some text</Typography>
-        </DetailContainer>
-      </Root>
+      <Hero />
+      <Live />
     </>
   );
 };
