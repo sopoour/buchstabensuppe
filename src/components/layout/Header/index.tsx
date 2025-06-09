@@ -8,7 +8,7 @@ import {
   HeaderWrapper,
   Line,
   LogoLetter,
-  Navigation,
+  NavigationDesktop,
 } from './style';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,10 +20,7 @@ const Header: React.FC = () => {
 
   return (
     <HeaderWrapper aria-label="navigation header" headerHeight={HEADER_HEIGHT} id="header">
-      <Navigation>
-        <div>Item 1</div>
-        <div>Item 2</div>
-      </Navigation>
+      <NavigationDesktop />
       <LogoLetter>buchstabensuppe</LogoLetter>
       <DesktopLinkContainer />
 

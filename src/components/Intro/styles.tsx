@@ -60,7 +60,6 @@ export const Letter = styled(Typography)`
 
 export const BSLetter = styled(Letter)`
   opacity: 0;
-  font-size: 2.2rem;
 `;
 
 export const ScrollArrowContainer = styled.button`

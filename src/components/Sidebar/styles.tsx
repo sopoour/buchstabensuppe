@@ -44,11 +44,10 @@ export const Content = styled.header<{ $open?: boolean }>`
   transform: translate3d(-100%, 0, 0);
   -webkit-transform: translate3d(-100%, 0, 0);
   opacity: 0;
-  padding: 80px 20px;
+  padding: 24px 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  justify-content: space-between;
+  gap: 40px;
   width: 250px;
   ${({ $open }) =>
     $open &&

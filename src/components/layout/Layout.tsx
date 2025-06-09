@@ -4,6 +4,9 @@ import { styled } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from '../Sidebar';
+import Navigation from './Navigation';
+import { LogoLetter } from './Header/style';
+import LinkContainer from '../LinkContainer';
 
 const Root = styled.div`
   display: flex;
@@ -17,6 +20,18 @@ const MainLayout = styled.main`
   min-height: 100vh;
 `;
 
+const NavigationMobile = styled(Navigation)`
+  && {
+    padding: 32px 0;
+  }
+`;
+
+const LinkContainerMobile = styled(LinkContainer)`
+  && {
+    padding: 32px 0;
+  }
+`;
+
 type Props = {
   children: ReactNode;
 };
@@ -24,7 +39,11 @@ type Props = {
 const Layout: FC<Props> = ({ children }) => (
   <>
     <Root>
-      <Sidebar>Some content</Sidebar>
+      <Sidebar>
+        <LogoLetter>buchstabensuppe</LogoLetter>
+        <NavigationMobile />
+        <LinkContainerMobile />
+      </Sidebar>
       <Header />
       <MainLayout>{children}</MainLayout>
       <Footer />
