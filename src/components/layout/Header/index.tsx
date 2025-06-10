@@ -21,6 +21,7 @@ const Header: React.FC = () => {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       gsap.set('#logo', { opacity: 0 });
+      // Once the live section is reached show the logo (before it is handled via hero animation)
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: '#live',
