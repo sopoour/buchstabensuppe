@@ -7,6 +7,7 @@ import Sidebar from '../Sidebar';
 import Navigation from './Navigation';
 import { LogoLetter } from './Header/style';
 import LinkContainer from '../LinkContainer';
+import useSidebar from '@app/hooks/useSidebar';
 
 const Root = styled.div`
   display: flex;
@@ -32,26 +33,33 @@ const LinkContainerMobile = styled(LinkContainer)`
   }
 `;
 
+const Logo = styled(LogoLetter)`
+  opacity: 1 !important;
+`;
+
 type Props = {
   children: ReactNode;
 };
 
-const Layout: FC<Props> = ({ children }) => (
-  <>
-    <Root>
-      <Sidebar>
-        <LogoLetter>buchstabensuppe</LogoLetter>
-        <NavigationMobile />
-        <LinkContainerMobile />
-      </Sidebar>
+const Layout: FC<Props> = ({ children }) => {
+  const { close } = useSidebar((state) => state);
+  return (
+    <>
+      <Root>
+        <Sidebar>
+          <Logo>buchstabensuppe</Logo>
+          <NavigationMobile onClick={close} />
+          <LinkContainerMobile />
+        </Sidebar>
 
-      <MainLayout>
-        <Header />
-        {children}
-      </MainLayout>
-      <Footer />
-    </Root>
-  </>
-);
+        <MainLayout>
+          <Header />
+          {children}
+        </MainLayout>
+        <Footer />
+      </Root>
+    </>
+  );
+};
 
 export default Layout;

@@ -27,7 +27,7 @@ export const SoupBowl = styled(Image)`
   z-index: 0;
   opacity: 0;
 
-  ${({ theme }) => theme.media('sm')`
+  ${({ theme }) => theme.media('xs')`
     width: 450px;
     left: calc(50% - 225px);
   `}
@@ -62,6 +62,10 @@ export const Letter = styled(Typography)`
 
 export const BSLetter = styled(Letter)`
   opacity: 0;
+  position: sticky;
+  top: 10px;
+  left: 0;
+  z-index: 1;
 `;
 
 export const ScrollArrowContainer = styled.button`

@@ -19,17 +19,12 @@ export const HeaderWrapper = styled.header<{ headerHeight: number }>`
   transform: none;
   background-color: ${({ theme }) => theme.colors.bg.defaultBlur};
   backdrop-filter: ${({ theme }) => theme.filters.backdrop};
-
-  /* ${({ theme }) => theme.media('md')`
-    transform: translateY(-100%);
-    opacity: 0;
-  `} */
 `;
 
 export const Line = styled.span<{ $isActive: boolean }>`
   width: 18px;
   height: 2px;
-  background-color: ${({ theme }) => theme.colors.fg.default};
+  background-color: ${({ theme }) => theme.colors.fg.contrast};
   display: block;
   margin: 0 auto;
   -webkit-transition: all 0.3s ease-in-out;
@@ -97,12 +92,14 @@ export const LogoLetter = styled.p`
   font-size: 1.2rem;
   font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
+  opacity: 0;
   color: ${({ theme }) => theme.colors.accent.yellow};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 0 0 0 -100px;
 
   ${({ theme }) => theme.media('sm')`
        font-size: 2rem;
-      
+       position: absolute;
+      left: calc(50% - 132px);
+       align-self: center;
   `}
 `;

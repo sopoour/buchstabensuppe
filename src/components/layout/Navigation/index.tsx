@@ -46,9 +46,10 @@ const NavigationItem = styled(Link)`
 
 type Props = {
   className?: string;
+  onClick?: () => void;
 };
 
-const Navigation: FC<Props> = ({ className }) => {
+const Navigation: FC<Props> = ({ className, onClick }) => {
   return (
     <NavigationWrapper className={className}>
       {items.map((item, index) => {
@@ -62,6 +63,7 @@ const Navigation: FC<Props> = ({ className }) => {
             smooth
             duration={700}
             href={`#${navItemName}`}
+            onClick={onClick}
           >
             {item}
           </NavigationItem>
