@@ -4,6 +4,7 @@ import Typography from '@app/components/Typography/Typography';
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import Live from '@app/components/sections/Live';
+import About from '@app/components/sections/About';
 
 const Root = styled.span`
   display: flex;
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
     <>
       <Hero />
       <Live />
+      <About />
     </>
   );
 };

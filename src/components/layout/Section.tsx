@@ -22,7 +22,7 @@ const MaxWidthContainer = styled.div<{ $maxWidth?: number }>`
   margin: 0 auto;
   max-width: ${({ $maxWidth }) => $maxWidth || 1000}px;
 
-  ${(props) => props.theme.media('md')`
+  ${(props) => props.theme.media('sm')`
     padding: 40px ${maxContainerPadding.desktop}px;
     justify-content: center;
     height: 100vh;
