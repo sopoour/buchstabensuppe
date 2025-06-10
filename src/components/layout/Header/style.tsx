@@ -2,8 +2,9 @@ import { css, styled } from 'styled-components';
 import { flexColumn, flexRow } from '@app/styles/mixins';
 import LinkContainer from '@app/components/LinkContainer';
 import Navigation from '../Navigation';
+import { montserrat } from '@app/styles/fonts';
 
-export const HeaderWrapper = styled.div<{ headerHeight: number }>`
+export const HeaderWrapper = styled.header<{ headerHeight: number }>`
   display: flex;
   position: sticky;
   opacity: 0;
@@ -94,10 +95,11 @@ export const DesktopLinkContainer = styled(LinkContainer)`
 
 export const LogoLetter = styled.p`
   font-size: 1.2rem;
+  font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.accent.yellow};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin: 0;
+  margin: 0 0 0 -100px;
 
   ${({ theme }) => theme.media('sm')`
        font-size: 2rem;

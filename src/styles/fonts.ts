@@ -1,14 +1,24 @@
-import { Montserrat, Roboto_Mono } from 'next/font/google';
+import { Karla, Montserrat, Roboto_Mono } from 'next/font/google';
 
 // define your variable fonts
 const montserrat = Montserrat({
-  weight: ['400', '700'],
+  weight: ['400', '500', '600','700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   fallback: ['sans-serif'],
   display: 'block',
   preload: true,
 });
+
+const karla = Karla({
+  weight: ['400', '500', '600','700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  fallback: ['sans-serif'],
+  display: 'block',
+  preload: true,
+})
+
 const robotoMono = Roboto_Mono({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
@@ -17,4 +27,4 @@ const robotoMono = Roboto_Mono({
   preload: true,
 });
 
-export { montserrat, robotoMono };
+export { montserrat, robotoMono, karla };

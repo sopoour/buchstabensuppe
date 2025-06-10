@@ -19,10 +19,11 @@ import gsap from 'gsap';
 import Draggable from 'gsap/dist/Draggable';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
-import Typography from '../Typography/Typography';
+import Typography from '@app/components/Typography/Typography';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
-import { HEADER_HEIGHT } from '../layout/Header';
+import { HEADER_HEIGHT } from '@app/components/layout/Header';
+import theme from '@app/styles/theme';
 
 gsap.registerPlugin(Draggable, ScrollTrigger);
 
@@ -36,16 +37,9 @@ const genCharArray = (charA: string, charZ: string) => {
   return a;
 };
 
-const BUCHSTABENSUPPE = 'buchstabensuppe';
+const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
 
-const LETTERS = [
-  ...genCharArray('a', 'z'),
-  ...genCharArray('a', 'z'),
-  ...genCharArray('a', 'z'),
-  ...Array.from(BUCHSTABENSUPPE),
-];
-
-const Intro: FC = () => {
+const Hero: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const bowlRef = useRef<HTMLImageElement | null>(null);
   const bsRef = useRef<HTMLParagraphElement | null>(null);
@@ -180,6 +174,7 @@ const Intro: FC = () => {
           .to(chars, {
             opacity: 0,
             duration: 1.2,
+            x: isDesktop ? 35 : 0,
             ease: 'power2.out',
             fontSize: isDesktop ? '2rem' : '1.2rem',
           })
@@ -228,7 +223,9 @@ const Intro: FC = () => {
       />
       <DragNote>
         <InfoIcon />
-        <Typography fontSize="10px">Erstelle dein eigenes Wort via Drag & Drop</Typography>
+        <Typography fontSize="10px" color={theme.colors.fg.contrast}>
+          Erstelle dein eigenes Wort via Drag & Drop
+        </Typography>
       </DragNote>
       <DragNote></DragNote>
       <ScrollArrowContainer
@@ -243,4 +240,4 @@ const Intro: FC = () => {
   );
 };
 
-export default Intro;
+export default Hero;

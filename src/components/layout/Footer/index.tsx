@@ -7,7 +7,7 @@ const FooterWrapper = styled.footer`
   align-items: center;
   justify-content: center;
   height: 64px;
-  background-color: ${({ theme }) => theme.colors.bg.soft};
+  background-color: ${({ theme }) => theme.colors.bg.contrast};
   color: ${({ theme }) => theme.colors.fg.contrast};
 `;
 

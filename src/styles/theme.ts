@@ -4,12 +4,13 @@ const theme = {
   media: getMedia,
   colors: {
     bg: {
-      default: '#347D80',
-      soft: '#D4EAEA',
+      default: '#E0F5F6',
+      contrast: '#347D80',
+      defaultBlur: 'rgba(52,125, 128, 0.5)'
     },
     fg: {
-      default: '#FFFFFF',
-      contrast: '#000000',
+      default: '#347D80',
+      contrast: '#E0F5F6',
       inactive: 'rgba(255, 255, 255, 0.75)',
     },
     accent: {
@@ -18,7 +19,7 @@ const theme = {
     },
   },
   filters: {
-    backdrop: 'blur(8px)',
+    backdrop: 'blur(5px)',
   }
 } as const;
 

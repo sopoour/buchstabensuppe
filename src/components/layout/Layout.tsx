@@ -44,8 +44,11 @@ const Layout: FC<Props> = ({ children }) => (
         <NavigationMobile />
         <LinkContainerMobile />
       </Sidebar>
-      <Header />
-      <MainLayout>{children}</MainLayout>
+
+      <MainLayout>
+        <Header />
+        {children}
+      </MainLayout>
       <Footer />
     </Root>
   </>

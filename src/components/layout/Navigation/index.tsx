@@ -1,3 +1,4 @@
+import { montserrat } from '@app/styles/fonts';
 import { fastTransition, flexColumn, flexRow } from '@app/styles/mixins';
 import { FC } from 'react';
 import { Link } from 'react-scroll';
@@ -17,8 +18,10 @@ const NavigationWrapper = styled.nav`
 
 const NavigationItem = styled(Link)`
   font-size: 16px;
+  font-family: ${montserrat.style.fontFamily};
   ${fastTransition}
   font-weight: 600;
+  color: ${({ theme }) => theme.colors.fg.contrast};
 
   &:not(.active) {
     cursor: pointer;
@@ -48,12 +51,11 @@ type Props = {
 const Navigation: FC<Props> = ({ className }) => {
   return (
     <NavigationWrapper className={className}>
-      {items.map((item) => {
-        const navItemName = item.toLowerCase();
+      {items.map((item, index) => {
+        const navItemName = item.toLowerCase().replace(/\s+/g, '-');
         return (
           <NavigationItem
-            key={navItemName}
-            id={navItemName}
+            key={item + index}
             activeClass="active"
             to={navItemName}
             spy
