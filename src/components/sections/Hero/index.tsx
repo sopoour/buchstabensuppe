@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
 import {
   ScrollArrowContainer,
   ScrollArrowFadeElement,
@@ -15,18 +15,9 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { scroller } from 'react-scroll';
 import Bowl from './assets/bowl.png';
 import BowlFront from './assets/bowl-front.png';
-import gsap from 'gsap';
-import Draggable from 'gsap/dist/Draggable';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import SplitType from 'split-type';
 import Typography from '@app/components/Typography/Typography';
-import { useMedia } from '@app/hooks/useMedia';
-import { Breakpoints } from '@app/styles/media';
-import { HEADER_HEIGHT } from '@app/components/layout/Header';
 import theme from '@app/styles/theme';
 import useHeroAnimation from './hooks/useHeroAnimation';
-
-gsap.registerPlugin(Draggable, ScrollTrigger);
 
 const genCharArray = (charA: string, charZ: string) => {
   var a = [],
@@ -44,7 +35,6 @@ const Hero: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const bowlRef = useRef<HTMLImageElement | null>(null);
   const bsRef = useRef<HTMLParagraphElement | null>(null);
-  const isDesktop = useMedia(Breakpoints.sm);
 
   useHeroAnimation(bowlRef, letterRefs, bsRef);
 
