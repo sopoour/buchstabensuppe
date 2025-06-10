@@ -1,3 +1,4 @@
+import { montserrat } from '@app/styles/fonts';
 import { fastTransition, flexColumn, flexRow } from '@app/styles/mixins';
 import { FC } from 'react';
 import { Link } from 'react-scroll';
@@ -17,6 +18,7 @@ const NavigationWrapper = styled.nav`
 
 const NavigationItem = styled(Link)`
   font-size: 16px;
+  font-family: ${montserrat.style.fontFamily};
   ${fastTransition}
   font-weight: 600;
   color: ${({ theme }) => theme.colors.fg.contrast};

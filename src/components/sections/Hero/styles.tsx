@@ -5,6 +5,7 @@ import { fadeIn, flexColumn, flexRow } from '@app/styles/mixins';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaInfo } from 'react-icons/fa';
 import { HEADER_HEIGHT } from '@app/components/layout/Header';
+import { montserrat } from '@app/styles/fonts';
 
 const height = HEADER_HEIGHT + 'px';
 
@@ -49,6 +50,7 @@ export const Letter = styled(Typography)`
   opacity: 0;
   position: absolute;
   font-size: 2.3rem;
+  font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.accent.yellow};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);

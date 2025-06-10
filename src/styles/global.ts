@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
-import { montserrat } from './fonts';
+import { karla } from './fonts';
 
 export const GlobalStyle = createGlobalStyle`
 
 html {
   color: black;
   font-size: 14px;
-  font-family: ${montserrat.style.fontFamily};
+  font-family: ${karla.style.fontFamily};
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -57,7 +57,7 @@ a {
   }
 }
 button {
-  font-family: ${montserrat.style.fontFamily};
+  font-family: ${karla.style.fontFamily};
   overflow: visible;
   cursor: pointer;
 }

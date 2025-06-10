@@ -1,3 +1,4 @@
+import { karla, montserrat } from '@app/styles/fonts';
 import styled from 'styled-components';
 
 type TextAlign = 'center' | 'start' | 'end';
@@ -10,7 +11,7 @@ export type Props = {
   className?: string;
   fontSize?: string;
   fontSizeSm?: string;
-  type?: string;
+  type?: 'montserrat' | 'karla';
   lineHeight?: string;
   textalign?: TextAlign;
   fontWeight?: FontWeight;
@@ -22,7 +23,8 @@ export type Props = {
 const Typography = styled.p<Props>`
   margin: 0;
   font-size: ${({ fontSize }) => fontSize || '16px'};
-  font-family: ${({ type }) => type};
+  font-family: ${({ type }) =>
+    type === 'montserrat' ? montserrat.style.fontFamily : karla.style.fontFamily};
   line-height: ${({ lineHeight }) => lineHeight || '1.5'};
   text-align: ${({ textalign }) => textalign || 'start'};
   font-weight: ${({ fontWeight }) => fontWeight || 700};

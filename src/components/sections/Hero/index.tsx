@@ -37,14 +37,7 @@ const genCharArray = (charA: string, charZ: string) => {
   return a;
 };
 
-const BUCHSTABENSUPPE = 'buchstabensuppe';
-
-const LETTERS = [
-  ...genCharArray('a', 'z'),
-  ...genCharArray('a', 'z'),
-  ...genCharArray('a', 'z'),
-  ...Array.from(BUCHSTABENSUPPE),
-];
+const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
 
 const Hero: FC = () => {
   const letterRefs = useRef<(HTMLParagraphElement | null)[]>([]);
