@@ -66,6 +66,9 @@ export const BSLetter = styled(Letter)`
   top: 10px;
   left: 0;
   z-index: 1;
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent.yellow};
+  }
 `;
 
 export const ScrollArrowContainer = styled.button`
