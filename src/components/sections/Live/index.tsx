@@ -70,7 +70,7 @@ const Live: FC = () => {
         {!showAll && shows && shows?.length > shownEventsNumber && (
           <ShowMore>
             <ShowMoreButton onClick={() => setShowAll(true)}>
-              View all shows <IoIosArrowDown />
+              Zeige alle events <IoIosArrowDown />
             </ShowMoreButton>
           </ShowMore>
         )}
