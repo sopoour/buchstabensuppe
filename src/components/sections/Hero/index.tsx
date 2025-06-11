@@ -73,7 +73,7 @@ const Hero: FC = () => {
       </DragNote>
       <DragNote></DragNote>
       <ScrollArrowContainer
-        onClick={() => scroller.scrollTo('live', { smooth: true, duration: 3000 })}
+        onClick={() => scroller.scrollTo('live', { smooth: true, duration: 3000, offset: -50 })}
         title="Scroll down button"
       >
         <IoIosArrowDown />
