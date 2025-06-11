@@ -49,28 +49,27 @@ type Props = {
   onClick?: () => void;
 };
 
-const Navigation: FC<Props> = ({ className, onClick }) => {
-  return (
-    <NavigationWrapper className={className}>
-      {items.map((item, index) => {
-        const navItemName = item.toLowerCase().replace(/\s+/g, '-');
-        return (
-          <NavigationItem
-            key={item + index}
-            activeClass="active"
-            to={navItemName}
-            spy
-            smooth
-            duration={700}
-            href={`#${navItemName}`}
-            onClick={onClick}
-          >
-            {item}
-          </NavigationItem>
-        );
-      })}
-    </NavigationWrapper>
-  );
-};
+const Navigation: FC<Props> = ({ className, onClick }) => (
+  <NavigationWrapper className={className}>
+    {items.map((item, index) => {
+      const navItemName = item.toLowerCase().replace(/\s+/g, '-');
+      return (
+        <NavigationItem
+          key={item + index}
+          activeClass="active"
+          to={navItemName}
+          spy
+          smooth
+          duration={700}
+          offset={-50}
+          href={`#${navItemName}`}
+          onClick={onClick}
+        >
+          {item}
+        </NavigationItem>
+      );
+    })}
+  </NavigationWrapper>
+);
 
 export default Navigation;

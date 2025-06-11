@@ -35,6 +35,7 @@ const LinkContainerMobile = styled(LinkContainer)`
 
 const Logo = styled(LogoLetter)`
   opacity: 1 !important;
+  margin: 0;
 `;
 
 type Props = {
