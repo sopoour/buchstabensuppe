@@ -10,6 +10,9 @@ import { css, styled } from 'styled-components';
 const LiveItem = styled.div<{ $isPastShow?: boolean }>`
   ${flexColumn};
   gap: 8px;
+  padding: 16px 12px;
+  background-color: ${({ theme }) => theme.colors.bg.default};
+  border-radius: 10px;
   justify-content: flex-start;
   ${({ $isPastShow }) =>
     $isPastShow &&
@@ -46,6 +49,7 @@ const TicketButton = styled(Link)`
   font-weight: 600;
   width: max-content;
   height: max-content;
+  justify-self: flex-end;
   ${fastTransition};
 
   &:hover {

@@ -12,7 +12,7 @@ import theme from '@app/styles/theme';
 
 const LiveContainer = styled.div`
   ${flexColumn};
-  gap: 32px;
+  gap: 12px;
   position: relative;
 `;
 
