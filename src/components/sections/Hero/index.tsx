@@ -67,7 +67,7 @@ const Hero: FC = () => {
       />
       <DragNote>
         <InfoIcon />
-        <Typography fontSize="10px" color={theme.colors.fg.contrast}>
+        <Typography fontSize="12px" color={theme.colors.fg.contrast}>
           Erstelle dein eigenes Wort via Drag & Drop
         </Typography>
       </DragNote>
