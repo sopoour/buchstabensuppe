@@ -71,9 +71,15 @@ const Live: FC = () => {
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Strip time from today
 
-  const shows = data?.sort(
-    (a, b) => normalizeDate(b.date).getTime() - normalizeDate(a.date).getTime(),
-  );
+  const upcomingShows = data
+    ?.filter((live) => normalizeDate(live.date) >= today)
+    ?.sort((a, b) => normalizeDate(a.date).getTime() - normalizeDate(b.date).getTime());
+
+  const pastShows = data
+    ?.filter((live) => normalizeDate(live.date) < today)
+    ?.sort((a, b) => normalizeDate(b.date).getTime() - normalizeDate(a.date).getTime());
+
+  const shows = upcomingShows && pastShows && [...upcomingShows, ...pastShows];
   const shownEventsNumber = 4;
   const visibleShows = showAll ? shows : shows?.slice(0, shownEventsNumber);
 
