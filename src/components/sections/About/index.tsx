@@ -21,7 +21,7 @@ const AboutContainer = styled.div`
   gap: 32px;
   align-items: center;
 
-  ${({ theme }) => theme.media('xs')`
+  ${({ theme }) => theme.media('sm')`
     grid-template-columns: 1fr 1fr;
   `}
 `;
@@ -31,7 +31,7 @@ const AboutImageWrapper = styled.span`
   width: 100%;
   height: auto;
   border: none !important;
-  ${({ theme }) => theme.media('xs')`
+  ${({ theme }) => theme.media('sm')`
      width: 450px;
   height: 450px;
   `}
@@ -42,7 +42,7 @@ const AboutImage = styled(ContentfulImage)`
     object-fit: cover;
     object-position: center 15%;
     z-index: 1;
-    ${({ theme }) => theme.media('xs')`
+    ${({ theme }) => theme.media('sm')`
      width: 450px !important;
      height: 450px !important;
   `}
@@ -61,17 +61,18 @@ const Whalemage = styled(Image)`
 
 const About: FC = () => {
   const { data, isLoading } = useSWR<GeneralContent | null>('/api/generalContent', fetcher);
-  const isDesktop = useMedia(Breakpoints.lg);
+  const isDesktopSm = useMedia(Breakpoints.sm);
+  const isDesktopMd = useMedia(Breakpoints.md);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      if (isDesktop) {
+      if (isDesktopSm) {
         gsap.set('#whale', { opacity: 0, rotate: -20 });
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#about',
-            start: 'top -100%',
-            end: 'center -40%',
+            start: 'top 100%',
+            end: 'center 25%',
             scrub: 1,
           },
         });
@@ -86,18 +87,18 @@ const About: FC = () => {
             ease: 'sine.inOut',
           })
           .to('#whale', {
-            x: 750,
+            x: isDesktopMd ? 750 : 500,
             y: 350,
             duration: 0.5,
-            rotation: 400,
+            rotation: 385,
             ease: 'sine.inOut',
           });
       }
     });
     return () => ctx.revert();
-  }, [isDesktop]);
+  }, [isDesktopSm, isDesktopMd]);
   return (
-    <Section id="über-uns">
+    <Section id="about">
       <AboutContainer>
         <AboutImageWrapper>
           <AboutImage src={data?.aboutImage?.url || ''} fill sizes="(max-width: 768px) 100vw" />

@@ -57,12 +57,12 @@ const Navigation: FC<Props> = ({ className, onClick }) => (
         <NavigationItem
           key={item + index}
           activeClass="active"
-          to={navItemName}
+          to={navItemName === 'über-uns' ? 'about' : navItemName}
           spy
           smooth
           duration={700}
           offset={-50}
-          href={`#${navItemName}`}
+          href={`#${navItemName === 'über-uns' ? 'about' : navItemName}`}
           onClick={onClick}
         >
           {item}
