@@ -90,19 +90,14 @@ const Live: FC = () => {
           },
         });
 
-        timeline
-          .to('#pig', {
-            x: -120,
-            y: 50,
-            opacity: 1,
-            duration: 8,
-            rotation: -15,
-            ease: 'sine.inOut',
-          })
-          .to('#pig', {
-            y: 100,
-            duration: 3,
-          });
+        timeline.to('#pig', {
+          x: -120,
+          y: 50,
+          opacity: 1,
+          duration: 8,
+          rotation: -15,
+          ease: 'sine.inOut',
+        });
       }
     });
     return () => ctx.revert();

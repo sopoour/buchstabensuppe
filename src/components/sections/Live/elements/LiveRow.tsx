@@ -91,16 +91,19 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
     <LiveItem $isPastShow={isPastShow}>
       <InfoCol>
         <Row>
-          <Location color={theme.colors.accent.flamingo} $isUpperCase type="montserrat">
+          <Location
+            fontWeight={700}
+            color={theme.colors.accent.flamingo}
+            $isUpperCase
+            type="montserrat"
+          >
             {show.location}
           </Location>
-          <Typography fontWeight={500} fontSize="12px">
-            {show.venue}
-          </Typography>
+          <Typography fontSize="12px">{show.venue}</Typography>
         </Row>
         <Row>
-          <Typography>{ISOToDate(show.date)},</Typography>
-          <Typography fontWeight={500}>{ISOToTime(show.date)}</Typography>
+          <Typography fontWeight={700}>{ISOToDate(show.date)},</Typography>
+          <Typography>{ISOToTime(show.date)}</Typography>
         </Row>
       </InfoCol>
       <Name fontSize="28px" fontWeight={500}>
