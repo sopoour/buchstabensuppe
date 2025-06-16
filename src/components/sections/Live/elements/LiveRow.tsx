@@ -33,12 +33,34 @@ const LiveItem = styled.div<{ $isPastShow?: boolean }>`
 
 const InfoCol = styled.div`
   ${flexColumn};
-  gap: 4px;
+  gap: 12px;
+
+  ${({ theme }) => theme.media('sm')`
+   gap: 4px;
+  `}
 `;
 
 const Row = styled.div`
-  ${flexRow};
-  gap: 8px;
+  ${flexColumn};
+
+  ${({ theme }) => theme.media('sm')`
+   ${flexRow};
+    gap: 8px;
+  `}
+`;
+
+const Location = styled(Typography)`
+  font-size: 28px;
+  ${({ theme }) => theme.media('sm')`
+    font-size: 32px;
+  `}
+`;
+
+const Name = styled(Typography)`
+  font-size: 20px;
+  ${({ theme }) => theme.media('sm')`
+    font-size: 28px;
+  `}
 `;
 
 const TicketButton = styled(Link)`
@@ -69,15 +91,10 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
     <LiveItem $isPastShow={isPastShow}>
       <InfoCol>
         <Row>
-          <Typography
-            color={theme.colors.accent.flamingo}
-            fontSize="32px"
-            $isUpperCase
-            type="montserrat"
-          >
+          <Location color={theme.colors.accent.flamingo} $isUpperCase type="montserrat">
             {show.location}
-          </Typography>
-          <Typography fontWeight={500} fontSize="12px" >
+          </Location>
+          <Typography fontWeight={500} fontSize="12px">
             {show.venue}
           </Typography>
         </Row>
@@ -86,9 +103,9 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
           <Typography fontWeight={500}>{ISOToTime(show.date)}</Typography>
         </Row>
       </InfoCol>
-      <Typography fontSize="28px" fontWeight={500}>
+      <Name fontSize="28px" fontWeight={500}>
         {show.name}
-      </Typography>
+      </Name>
 
       {show.ticketLink && <TicketButton href={show.ticketLink}>Ticket</TicketButton>}
     </LiveItem>

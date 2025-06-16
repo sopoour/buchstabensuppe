@@ -12,6 +12,8 @@ import Image from 'next/image';
 import Pig from '@app/assets/pig.png';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useMedia } from '@app/hooks/useMedia';
+import { Breakpoints } from '@app/styles/media';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +66,7 @@ const PigImage = styled(Image)`
 
 const Live: FC = () => {
   const { data, isLoading } = useSWR<LiveEvent[] | null>('/api/live', fetcher);
+  const isDesktop = useMedia(Breakpoints.lg);
   const [showAll, setShowAll] = useState<boolean>(false);
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Strip time from today
@@ -76,32 +79,34 @@ const Live: FC = () => {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set('#pig', { opacity: 0 });
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: '#live',
-          start: 'top 5%',
-          end: 'bottom 90%',
-          scrub: 2,
-        },
-      });
-
-      timeline
-        .to('#pig', {
-          x: -120,
-          y: 50,
-          opacity: 1,
-          duration: 8,
-          rotation: -15,
-          ease: 'sine.inOut',
-        })
-        .to('#pig', {
-          y: 100,
-          duration: 3,
+      if (isDesktop) {
+        gsap.set('#pig', { opacity: 0 });
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#live',
+            start: 'top 5%',
+            end: 'bottom 90%',
+            scrub: 2,
+          },
         });
+
+        timeline
+          .to('#pig', {
+            x: -120,
+            y: 50,
+            opacity: 1,
+            duration: 8,
+            rotation: -15,
+            ease: 'sine.inOut',
+          })
+          .to('#pig', {
+            y: 100,
+            duration: 3,
+          });
+      }
     });
     return () => ctx.revert();
-  }, []);
+  }, [isDesktop]);
 
   return (
     <Section id="live" $bgColor="#CAE8E9">
