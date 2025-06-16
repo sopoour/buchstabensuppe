@@ -17,9 +17,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 32px;
   align-items: center;
+
+  ${({ theme }) => theme.media('xs')`
+    grid-template-columns: 1fr 1fr;
+  `}
+`;
+
+const AboutImageWrapper = styled.span`
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: none !important;
+  ${({ theme }) => theme.media('xs')`
+     width: 450px;
+  height: 450px;
+  `}
 `;
 
 const AboutImage = styled(ContentfulImage)`
@@ -27,6 +42,13 @@ const AboutImage = styled(ContentfulImage)`
     object-fit: cover;
     object-position: center 15%;
     z-index: 1;
+    ${({ theme }) => theme.media('xs')`
+     width: 450px !important;
+     height: 450px !important;
+  `}
+    width: 100% !important;
+    height: unset !important;
+    position: relative !important;
   }
 `;
 
@@ -77,9 +99,9 @@ const About: FC = () => {
   return (
     <Section id="über-uns">
       <AboutContainer>
-        <span style={{ position: 'relative', width: '450px', height: '450px', border: 'none' }}>
-          <AboutImage src={data?.aboutImage?.url || ''} fill />
-        </span>
+        <AboutImageWrapper>
+          <AboutImage src={data?.aboutImage?.url || ''} fill sizes="(max-width: 768px) 100vw" />
+        </AboutImageWrapper>
         <Typography fontSize="20px" textalign="justify">
           {data?.aboutDescription}
         </Typography>

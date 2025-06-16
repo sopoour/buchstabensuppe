@@ -17,7 +17,7 @@ const MaxWidthContainer = styled.div<{ $maxWidth?: number }>`
   ${flexColumn};
   gap: 40px;
   width: 100%;
-  height: unset;
+  min-height: unset;
   padding: 32px ${maxContainerPadding.mobile}px;
   margin: 0 auto;
   max-width: ${({ $maxWidth }) => $maxWidth || 1000}px;
@@ -25,7 +25,7 @@ const MaxWidthContainer = styled.div<{ $maxWidth?: number }>`
   ${(props) => props.theme.media('sm')`
     padding: 40px ${maxContainerPadding.desktop}px;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
   `}
 `;
 
