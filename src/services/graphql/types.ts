@@ -902,6 +902,7 @@ export type YouTubeSample = Entry & _Node & {
   contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<YouTubeSampleLinkingCollections>;
   sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
   ytSample?: Maybe<Scalars['String']['output']>;
 };
 
@@ -909,6 +910,12 @@ export type YouTubeSample = Entry & _Node & {
 /** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/youTubeSample) */
 export type YouTubeSampleLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/youTubeSample) */
+export type YouTubeSampleTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -930,6 +937,13 @@ export type YouTubeSampleFilter = {
   OR?: InputMaybe<Array<InputMaybe<YouTubeSampleFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   ytSample?: InputMaybe<Scalars['String']['input']>;
   ytSample_contains?: InputMaybe<Scalars['String']['input']>;
   ytSample_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -961,6 +975,8 @@ export enum YouTubeSampleOrder {
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
   YtSampleAsc = 'ytSample_ASC',
   YtSampleDesc = 'ytSample_DESC'
 }
