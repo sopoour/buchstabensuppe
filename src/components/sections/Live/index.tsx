@@ -60,7 +60,7 @@ const ShowMoreButton = styled.button`
 
 const PigImage = styled(Image)`
   position: absolute;
-  top: 25%;
+  top: 15%;
   opacity: 0;
 `;
 
@@ -84,14 +84,14 @@ const Live: FC = () => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#live',
-            start: 'top 5%',
+            start: 'top 10%',
             end: 'bottom 90%',
             scrub: 2,
           },
         });
 
         timeline.to('#pig', {
-          x: -120,
+          x: -140,
           y: 50,
           opacity: 1,
           duration: 8,
@@ -116,7 +116,13 @@ const Live: FC = () => {
             </ShowMoreButton>
           </ShowMore>
         )}
-        <PigImage id="pig" src={Pig.src} width={Pig.width / 2} height={Pig.height / 2} alt="Pig" />
+        <PigImage
+          id="pig"
+          src={Pig.src}
+          width={Pig.width / 1.5}
+          height={Pig.height / 1.5}
+          alt="Pig"
+        />
       </LiveContainer>
     </Section>
   );
