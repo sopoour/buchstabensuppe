@@ -169,10 +169,19 @@ export type AssetFilter = {
 export type AssetLinkingCollections = {
   __typename?: 'AssetLinkingCollections';
   entryCollection?: Maybe<EntryCollection>;
+  generalContentCollection?: Maybe<GeneralContentCollection>;
 };
 
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AssetLinkingCollectionsGeneralContentCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
@@ -273,6 +282,99 @@ export enum EntryOrder {
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
+}
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/generalContent) */
+export type GeneralContent = Entry & _Node & {
+  __typename?: 'GeneralContent';
+  _id: Scalars['ID']['output'];
+  aboutDescription?: Maybe<Scalars['String']['output']>;
+  aboutImage?: Maybe<Asset>;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<GeneralContentLinkingCollections>;
+  sys: Sys;
+  version?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/generalContent) */
+export type GeneralContentAboutDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/generalContent) */
+export type GeneralContentAboutImageArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/generalContent) */
+export type GeneralContentLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/generalContent) */
+export type GeneralContentVersionArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type GeneralContentCollection = {
+  __typename?: 'GeneralContentCollection';
+  items: Array<Maybe<GeneralContent>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type GeneralContentFilter = {
+  AND?: InputMaybe<Array<InputMaybe<GeneralContentFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<GeneralContentFilter>>>;
+  aboutDescription?: InputMaybe<Scalars['String']['input']>;
+  aboutDescription_contains?: InputMaybe<Scalars['String']['input']>;
+  aboutDescription_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  aboutDescription_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  aboutDescription_not?: InputMaybe<Scalars['String']['input']>;
+  aboutDescription_not_contains?: InputMaybe<Scalars['String']['input']>;
+  aboutDescription_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  aboutImage_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  sys?: InputMaybe<SysFilter>;
+  version?: InputMaybe<Scalars['String']['input']>;
+  version_contains?: InputMaybe<Scalars['String']['input']>;
+  version_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  version_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  version_not?: InputMaybe<Scalars['String']['input']>;
+  version_not_contains?: InputMaybe<Scalars['String']['input']>;
+  version_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type GeneralContentLinkingCollections = {
+  __typename?: 'GeneralContentLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type GeneralContentLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum GeneralContentOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  VersionAsc = 'version_ASC',
+  VersionDesc = 'version_DESC'
 }
 
 export enum ImageFormat {
@@ -530,8 +632,14 @@ export type Query = {
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  generalContent?: Maybe<GeneralContent>;
+  generalContentCollection?: Maybe<GeneralContentCollection>;
   live?: Maybe<Live>;
   liveCollection?: Maybe<LiveCollection>;
+  spotifySample?: Maybe<SpotifySample>;
+  spotifySampleCollection?: Maybe<SpotifySampleCollection>;
+  youTubeSample?: Maybe<YouTubeSample>;
+  youTubeSampleCollection?: Maybe<YouTubeSampleCollection>;
 };
 
 
@@ -576,6 +684,23 @@ export type QueryEntryCollectionArgs = {
 };
 
 
+export type QueryGeneralContentArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryGeneralContentCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<GeneralContentOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<GeneralContentFilter>;
+};
+
+
 export type QueryLiveArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -591,6 +716,126 @@ export type QueryLiveCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<LiveFilter>;
 };
+
+
+export type QuerySpotifySampleArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QuerySpotifySampleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<SpotifySampleOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<SpotifySampleFilter>;
+};
+
+
+export type QueryYouTubeSampleArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryYouTubeSampleCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<YouTubeSampleOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<YouTubeSampleFilter>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/spotifySample) */
+export type SpotifySample = Entry & _Node & {
+  __typename?: 'SpotifySample';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<SpotifySampleLinkingCollections>;
+  sample?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/spotifySample) */
+export type SpotifySampleLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/spotifySample) */
+export type SpotifySampleSampleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/spotifySample) */
+export type SpotifySampleTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SpotifySampleCollection = {
+  __typename?: 'SpotifySampleCollection';
+  items: Array<Maybe<SpotifySample>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type SpotifySampleFilter = {
+  AND?: InputMaybe<Array<InputMaybe<SpotifySampleFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<SpotifySampleFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  sample?: InputMaybe<Scalars['String']['input']>;
+  sample_contains?: InputMaybe<Scalars['String']['input']>;
+  sample_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sample_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sample_not?: InputMaybe<Scalars['String']['input']>;
+  sample_not_contains?: InputMaybe<Scalars['String']['input']>;
+  sample_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SpotifySampleLinkingCollections = {
+  __typename?: 'SpotifySampleLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type SpotifySampleLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum SpotifySampleOrder {
+  SampleAsc = 'sample_ASC',
+  SampleDesc = 'sample_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
 
 export type Sys = {
   __typename?: 'Sys';
@@ -649,6 +894,76 @@ export type TaxonomyConcept = {
   __typename?: 'TaxonomyConcept';
   id?: Maybe<Scalars['String']['output']>;
 };
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/youTubeSample) */
+export type YouTubeSample = Entry & _Node & {
+  __typename?: 'YouTubeSample';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<YouTubeSampleLinkingCollections>;
+  sys: Sys;
+  ytSample?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/youTubeSample) */
+export type YouTubeSampleLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/y9guni2gc76b/content_types/youTubeSample) */
+export type YouTubeSampleYtSampleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type YouTubeSampleCollection = {
+  __typename?: 'YouTubeSampleCollection';
+  items: Array<Maybe<YouTubeSample>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type YouTubeSampleFilter = {
+  AND?: InputMaybe<Array<InputMaybe<YouTubeSampleFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<YouTubeSampleFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  sys?: InputMaybe<SysFilter>;
+  ytSample?: InputMaybe<Scalars['String']['input']>;
+  ytSample_contains?: InputMaybe<Scalars['String']['input']>;
+  ytSample_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  ytSample_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  ytSample_not?: InputMaybe<Scalars['String']['input']>;
+  ytSample_not_contains?: InputMaybe<Scalars['String']['input']>;
+  ytSample_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type YouTubeSampleLinkingCollections = {
+  __typename?: 'YouTubeSampleLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type YouTubeSampleLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum YouTubeSampleOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  YtSampleAsc = 'ytSample_ASC',
+  YtSampleDesc = 'ytSample_DESC'
+}
 
 export type _Node = {
   _id: Scalars['ID']['output'];

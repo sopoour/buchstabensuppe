@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import styled from 'styled-components';
 import Live from '@app/components/sections/Live';
 import About from '@app/components/sections/About';
+import AudioSample from '@app/components/sections/AudioSample';
 
 const Root = styled.span`
   display: flex;
@@ -33,6 +34,7 @@ const Home: NextPage = () => {
       <Hero />
       <Live />
       <About />
+      <AudioSample />
     </>
   );
 };
