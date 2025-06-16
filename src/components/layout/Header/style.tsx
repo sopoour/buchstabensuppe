@@ -97,6 +97,13 @@ export const LogoLetter = styled.p`
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   ${({ theme }) => theme.media('sm')`
+       font-size: 1.7rem;
+       position: absolute;
+        left: calc(50% - 112px);
+       align-self: center;
+  `}
+
+  ${({ theme }) => theme.media('md')`
        font-size: 2rem;
        position: absolute;
       left: calc(50% - 132px);

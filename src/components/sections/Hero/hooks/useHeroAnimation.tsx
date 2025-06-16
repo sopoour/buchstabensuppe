@@ -14,7 +14,8 @@ const useHeroAnimation = (
   letterRefs: RefObject<(HTMLParagraphElement | null)[]>,
   bsRef: RefObject<HTMLParagraphElement | null>,
 ) => {
-  const isDesktop = useMedia(Breakpoints.md);
+  const isDesktopMd = useMedia(Breakpoints.md);
+  const isDesktopSm = useMedia(Breakpoints.sm);
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       if (!bowlRef.current) return;
@@ -136,7 +137,7 @@ const useHeroAnimation = (
           })
           // move stacked letters out of bowl
           .to(chars, {
-            y: isDesktop ? -250 : -200,
+            y: isDesktopMd ? -250 : -200,
             stagger: 0.04,
             ease: 'back.out(1.7)',
             duration: 1,
@@ -146,13 +147,13 @@ const useHeroAnimation = (
             bsRef.current,
             {
               duration: 1.2,
-              y: isDesktop ? 250 : 210,
-              xPercent: isDesktop ? 0 : '-50',
+              y: isDesktopMd ? 250 : isDesktopSm ? 205 : 210,
+              xPercent: isDesktopSm ? 0 : '-50',
               ease: 'power2.out',
               zIndex: 5,
-              fontSize: isDesktop ? '2rem' : '1.2rem',
+              fontSize: isDesktopMd ? '2rem' : isDesktopSm ? '1.7rem' : '1.2rem',
             },
-            isDesktop ? '-=0.8' : '-=0.6',
+            isDesktopMd ? '-=0.8' : '-=0.6',
           )
           // show slowly the header
           .to(
@@ -162,13 +163,13 @@ const useHeroAnimation = (
               duration: 0.5,
               ease: 'power2.out',
             },
-            isDesktop ? '-=0.3' : '-=0.1',
+            isDesktopMd ? '-=0.3' : '-=0.1',
           );
       }
     });
 
     return () => ctx.revert();
-  }, [isDesktop]);
+  }, [isDesktopMd, isDesktopSm]);
 };
 
 export default useHeroAnimation;
