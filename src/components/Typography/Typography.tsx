@@ -1,7 +1,7 @@
 import { karla, montserrat } from '@app/styles/fonts';
 import styled from 'styled-components';
 
-type TextAlign = 'center' | 'start' | 'end';
+type TextAlign = 'center' | 'start' | 'end' | 'justify';
 
 type FontWeight = 400 | 500 | 600 | 700 | 900;
 
@@ -27,7 +27,7 @@ const Typography = styled.p<Props>`
     type === 'montserrat' ? montserrat.style.fontFamily : karla.style.fontFamily};
   line-height: ${({ lineHeight }) => lineHeight || '1.5'};
   text-align: ${({ textalign }) => textalign || 'start'};
-  font-weight: ${({ fontWeight }) => fontWeight || 700};
+  font-weight: ${({ fontWeight }) => fontWeight || 500};
   color: ${({ color, theme }) => color || theme.colors.fg.default};
   white-space: ${({ whiteSpace }) => whiteSpace || 'pre-wrap'};
   text-transform: ${({ $isUpperCase }) => ($isUpperCase ? 'uppercase' : 'none')};

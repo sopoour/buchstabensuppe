@@ -21,7 +21,7 @@ const AudioSample: FC = () => {
   const isDesktop = useMedia(Breakpoints.sm);
   const { data, isLoading } = useSWR<SpotifySample[] | null>('/api/spotify', fetcher);
   return (
-    <Section id="hörproben">
+    <Section id="hörproben" $bgColor="#F4FAFA">
       <SampleContainer>
         {data?.map((embed) => (
           <iframe

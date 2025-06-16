@@ -60,7 +60,7 @@ const ShowMoreButton = styled.button`
 
 const PigImage = styled(Image)`
   position: absolute;
-  top: 25%;
+  top: 15%;
   opacity: 0;
 `;
 
@@ -71,9 +71,15 @@ const Live: FC = () => {
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Strip time from today
 
-  const shows = data?.sort(
-    (a, b) => normalizeDate(b.date).getTime() - normalizeDate(a.date).getTime(),
-  );
+  const upcomingShows = data
+    ?.filter((live) => normalizeDate(live.date) >= today)
+    ?.sort((a, b) => normalizeDate(a.date).getTime() - normalizeDate(b.date).getTime());
+
+  const pastShows = data
+    ?.filter((live) => normalizeDate(live.date) < today)
+    ?.sort((a, b) => normalizeDate(b.date).getTime() - normalizeDate(a.date).getTime());
+
+  const shows = upcomingShows && pastShows && [...upcomingShows, ...pastShows];
   const shownEventsNumber = 4;
   const visibleShows = showAll ? shows : shows?.slice(0, shownEventsNumber);
 
@@ -84,25 +90,20 @@ const Live: FC = () => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#live',
-            start: 'top 5%',
+            start: 'top 10%',
             end: 'bottom 90%',
             scrub: 2,
           },
         });
 
-        timeline
-          .to('#pig', {
-            x: -120,
-            y: 50,
-            opacity: 1,
-            duration: 8,
-            rotation: -15,
-            ease: 'sine.inOut',
-          })
-          .to('#pig', {
-            y: 100,
-            duration: 3,
-          });
+        timeline.to('#pig', {
+          x: -140,
+          y: 50,
+          opacity: 1,
+          duration: 8,
+          rotation: -15,
+          ease: 'sine.inOut',
+        });
       }
     });
     return () => ctx.revert();
@@ -121,7 +122,13 @@ const Live: FC = () => {
             </ShowMoreButton>
           </ShowMore>
         )}
-        <PigImage id="pig" src={Pig.src} width={Pig.width / 2} height={Pig.height / 2} alt="Pig" />
+        <PigImage
+          id="pig"
+          src={Pig.src}
+          width={Pig.width / 1.5}
+          height={Pig.height / 1.5}
+          alt="Pig"
+        />
       </LiveContainer>
     </Section>
   );
