@@ -7,13 +7,6 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 
-const spotifyEmbed = [
-  'https://open.spotify.com/embed/track/5uk5whuATUwtzRKeC1M9sz',
-  'https://open.spotify.com/embed/track/2EairZXnI7MM4O3weSMePQ',
-  'https://open.spotify.com/embed/track/6rVFk8fwOrsvMYJjC72RN1',
-  'https://open.spotify.com/embed/track/7eEOQtn7U9OJOJftiK4Fcf',
-];
-
 const SampleContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
