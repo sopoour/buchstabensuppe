@@ -20,7 +20,6 @@ gsap.registerPlugin(ScrollTrigger);
 const LiveContainer = styled.div`
   ${flexColumn};
   gap: 12px;
-  z-index: 1;
   position: relative;
   background-color: #cae8e9;
 `;
@@ -34,10 +33,11 @@ const ShowMore = styled.div`
     content: '';
     position: absolute;
     display: block;
-    bottom: 50px;
+    bottom: 40px;
     left: 0;
+    z-index: 3;
     width: 100%;
-    height: 120px;
+    height: 130px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #cae8e9 100%);
     transition: opacity 0.3s ease;
   }
@@ -50,6 +50,7 @@ const ShowMoreButton = styled.button`
   color: ${({ theme }) => theme.colors.fg.default};
   font-size: 16px;
   font-weight: 500;
+  z-index: 4;
   width: max-content;
   ${fastTransition};
   &:hover {

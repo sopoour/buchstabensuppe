@@ -44,7 +44,7 @@ const About: FC = () => {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       if (isDesktop) {
-        gsap.set('#pig', { opacity: 0 });
+        gsap.set('#whale', { opacity: 0, rotate: -20 });
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#about',
@@ -57,17 +57,17 @@ const About: FC = () => {
         timeline
           .to('#whale', {
             x: 150,
-            y: -200,
+            y: -225,
             opacity: 1,
             duration: 0.5,
-            rotation: -15,
+            rotation: 10,
             ease: 'sine.inOut',
           })
           .to('#whale', {
-            x: 700,
-            y: 250,
+            x: 750,
+            y: 350,
             duration: 0.5,
-            rotation: 375,
+            rotation: 400,
             ease: 'sine.inOut',
           });
       }
