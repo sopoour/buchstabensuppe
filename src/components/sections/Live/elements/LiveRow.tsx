@@ -14,6 +14,7 @@ const LiveItem = styled.div<{ $isPastShow?: boolean }>`
   background-color: ${({ theme }) => theme.colors.bg.default};
   border-radius: 10px;
   justify-content: flex-start;
+  z-index: 2;
   ${({ $isPastShow }) =>
     $isPastShow &&
     css`
@@ -76,7 +77,7 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
           >
             {show.location}
           </Typography>
-          <Typography fontWeight={500} fontSize="12px">
+          <Typography fontWeight={500} fontSize="12px" >
             {show.venue}
           </Typography>
         </Row>
