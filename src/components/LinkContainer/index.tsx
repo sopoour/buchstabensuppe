@@ -85,19 +85,19 @@ const LinkContainer: FC<Props> = ({
               icon: <FaSpotify />,
               link:
                 icon.link ||
-                'https://open.spotify.com/artist/6ZEMlHydJRHREpHwmNza4T?si=L5NhpgmwSmO2AmJAjRnxWw',
+                'https://open.spotify.com/artist/6JHVZm8sZ8btbmGIp6au9H?si=el-h-I4QQFq1Vi4wQ8t9rg ',
             };
           case 'email':
             return {
               id: 'email',
               icon: <FaEnvelope />,
-              link: icon.link || 'mailto:contact@g-emma.com',
+              link: icon.link || 'mailto:kontakt@buchstabensuppe-hörspiel.de',
             };
           case 'instagram':
             return {
               id: 'instagram',
               icon: <FaInstagram />,
-              link: 'https://www.instagram.com/gemma.msc/',
+              link: 'https://www.instagram.com/buuchstabensuppe/',
             };
           case 'appleMusic':
             return {
@@ -109,7 +109,7 @@ const LinkContainer: FC<Props> = ({
             return {
               id: 'youtube',
               icon: <FaYoutube />,
-              link: 'https://www.youtube.com/@gemma.msc.',
+              link: 'https://www.youtube.com/@Buchstabensuppe-h5h',
             };
           case 'link':
             return { id: icon.id ?? 'external link', icon: <FaLink />, link: icon.link };

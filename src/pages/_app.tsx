@@ -7,7 +7,6 @@ import theme from '@app/styles/theme';
 import Head from 'next/head';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  // TODO: Change description and title
   const metaDescription = 'Live Hörspiel';
   const metaTitle = 'buchstabensuppe';
   return (

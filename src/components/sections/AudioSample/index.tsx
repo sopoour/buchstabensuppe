@@ -1,4 +1,5 @@
 import Section from '@app/components/layout/Section';
+import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
 import { fetcher } from '@app/hooks/fetch/useFetch';
 import { useMedia } from '@app/hooks/useMedia';
 import { SpotifySample } from '@app/services/graphql/types';
@@ -19,7 +20,11 @@ const SampleContainer = styled.div`
 
 const AudioSample: FC = () => {
   const isDesktop = useMedia(Breakpoints.sm);
-  const { data, isLoading } = useSWR<SpotifySample[] | null>('/api/spotify', fetcher);
+  const { data, isLoading } = useSWR<SpotifySample[] | null>(
+    '/api/spotify',
+    fetcher,
+    swrFetchObject,
+  );
   return (
     <Section id="hörproben" $bgColor="#F4FAFA">
       <SampleContainer>

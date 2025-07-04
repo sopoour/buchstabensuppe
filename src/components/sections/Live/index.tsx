@@ -1,7 +1,7 @@
 import Section from '@app/components/layout/Section';
 import { fetcher } from '@app/hooks/fetch/useFetch';
 import { Live as LiveEvent } from '@app/services/graphql/types';
-import { FC, useLayoutEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { normalizeDate } from '@app/utils/formatDate';
 import { styled } from 'styled-components';
@@ -14,6 +14,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
+import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +67,7 @@ const PigImage = styled(Image)`
 `;
 
 const Live: FC = () => {
-  const { data, isLoading } = useSWR<LiveEvent[] | null>('/api/live', fetcher);
+  const { data, isLoading } = useSWR<LiveEvent[] | null>('/api/live', fetcher, swrFetchObject);
   const isDesktop = useMedia(Breakpoints.lg);
   const [showAll, setShowAll] = useState<boolean>(false);
   const today = new Date();
@@ -84,7 +85,7 @@ const Live: FC = () => {
   const shownEventsNumber = 4;
   const visibleShows = showAll ? shows : shows?.slice(0, shownEventsNumber);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (isDesktop) {
         gsap.set('#pig', { opacity: 0 });

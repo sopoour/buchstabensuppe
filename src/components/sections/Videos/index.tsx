@@ -1,4 +1,5 @@
 import Section from '@app/components/layout/Section';
+import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
 import { fetcher } from '@app/hooks/fetch/useFetch';
 import { useMedia } from '@app/hooks/useMedia';
 import { YouTubeSample } from '@app/services/graphql/types';
@@ -20,7 +21,11 @@ const SampleContainer = styled.div`
 
 const Videos: FC = () => {
   const isDesktop = useMedia(Breakpoints.sm);
-  const { data, isLoading } = useSWR<YouTubeSample[] | null>('/api/youtube', fetcher);
+  const { data, isLoading } = useSWR<YouTubeSample[] | null>(
+    '/api/youtube',
+    fetcher,
+    swrFetchObject,
+  );
   return (
     <Section id="videos">
       <SampleContainer>

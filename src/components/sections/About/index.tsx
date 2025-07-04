@@ -5,13 +5,15 @@ import { useMedia } from '@app/hooks/useMedia';
 import ContentfulImage from '@app/lib/contentful-image';
 import { GeneralContent } from '@app/services/graphql/types';
 import { Breakpoints } from '@app/styles/media';
-import { FC, useLayoutEffect } from 'react';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 import Whale from '@app/assets/whale.png';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
+import Skeleton from 'react-loading-skeleton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,11 +62,15 @@ const Whalemage = styled(Image)`
 `;
 
 const About: FC = () => {
-  const { data, isLoading } = useSWR<GeneralContent | null>('/api/generalContent', fetcher);
+  const { data, isLoading } = useSWR<GeneralContent | null>(
+    '/api/generalContent',
+    fetcher,
+    swrFetchObject,
+  );
   const isDesktopSm = useMedia(Breakpoints.sm);
   const isDesktopMd = useMedia(Breakpoints.md);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (isDesktopSm) {
         gsap.set('#whale', { opacity: 0, rotate: -20 });
@@ -101,9 +107,18 @@ const About: FC = () => {
     <Section id="about">
       <AboutContainer>
         <AboutImageWrapper>
-          <AboutImage src={data?.aboutImage?.url || ''} fill sizes="(max-width: 768px) 100vw" />
+          {data?.aboutImage?.url ? (
+            <AboutImage
+              src={data?.aboutImage?.url || ''}
+              fill
+              sizes="(max-width: 768px) 100vw"
+              alt="buchstabensuppe team picture"
+            />
+          ) : (
+            <Skeleton width={450} height={450} />
+          )}
         </AboutImageWrapper>
-        <Typography fontSize="20px" textalign="justify">
+        <Typography fontSize="20px" $textalign="justify">
           {data?.aboutDescription}
         </Typography>
         <Whalemage
