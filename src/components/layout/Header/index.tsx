@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useSidebar from '@app/hooks/useSidebar';
@@ -15,10 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const HEADER_HEIGHT = 64;
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const { open, setOpen } = useSidebar((state) => state);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.set('#logo', { opacity: 0 });
       // Once the live section is reached show the logo (before it is handled via hero animation)
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <HeaderWrapper aria-label="navigation header" headerHeight={HEADER_HEIGHT} id="header">
+    <HeaderWrapper aria-label="navigation header" $headerHeight={HEADER_HEIGHT} id="header">
       <NavigationDesktop />
       <LogoLetter id="logo">buchstabensuppe</LogoLetter>
       <DesktopLinkContainer />

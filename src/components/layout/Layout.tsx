@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from '../Sidebar';

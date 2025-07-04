@@ -4,13 +4,13 @@ import LinkContainer from '@app/components/LinkContainer';
 import Navigation from '../Navigation';
 import { montserrat } from '@app/styles/fonts';
 
-export const HeaderWrapper = styled.header<{ headerHeight: number }>`
+export const HeaderWrapper = styled.header<{ $headerHeight: number }>`
   display: flex;
   position: sticky;
   opacity: 0;
   top: -1px;
   z-index: 5;
-  min-height: ${({ headerHeight }) => `${headerHeight}px`};
+  min-height: ${({ $headerHeight }) => `${$headerHeight}px`};
   padding: 8px 32px;
   justify-content: space-between;
   align-items: center;

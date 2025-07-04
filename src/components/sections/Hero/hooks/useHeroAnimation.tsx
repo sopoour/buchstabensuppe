@@ -1,4 +1,4 @@
-import { RefObject, useLayoutEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Draggable from 'gsap/dist/Draggable';
@@ -16,7 +16,7 @@ const useHeroAnimation = (
 ) => {
   const isDesktopMd = useMedia(Breakpoints.md);
   const isDesktopSm = useMedia(Breakpoints.sm);
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       if (!bowlRef.current) return;
 

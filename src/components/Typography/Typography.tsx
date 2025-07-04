@@ -13,7 +13,7 @@ export type Props = {
   fontSizeSm?: string;
   type?: 'montserrat' | 'karla';
   lineHeight?: string;
-  textalign?: TextAlign;
+  $textalign?: TextAlign;
   fontWeight?: FontWeight;
   color?: string;
   whiteSpace?: WhiteSpace;
@@ -26,7 +26,7 @@ const Typography = styled.p<Props>`
   font-family: ${({ type }) =>
     type === 'montserrat' ? montserrat.style.fontFamily : karla.style.fontFamily};
   line-height: ${({ lineHeight }) => lineHeight || '1.5'};
-  text-align: ${({ textalign }) => textalign || 'start'};
+  text-align: ${({ $textalign }) => $textalign || 'start'};
   font-weight: ${({ fontWeight }) => fontWeight || 500};
   color: ${({ color, theme }) => color || theme.colors.fg.default};
   white-space: ${({ whiteSpace }) => whiteSpace || 'pre-wrap'};
