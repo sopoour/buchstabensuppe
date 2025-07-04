@@ -9,8 +9,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Hero />
-      <Live />
       <About />
+      <Live />
       <AudioSample />
       <Videos />
     </>

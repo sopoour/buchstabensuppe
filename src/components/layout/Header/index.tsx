@@ -24,7 +24,7 @@ const Header: FC = () => {
       // Once the live section is reached show the logo (before it is handled via hero animation)
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: '#live',
+          trigger: '#about',
           start: 'top 10%',
           end: 'top -20%',
           scrub: 1,
