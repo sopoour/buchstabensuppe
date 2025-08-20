@@ -6,7 +6,7 @@ const theme = {
     bg: {
       default: '#E0F5F6',
       contrast: '#0C3037',
-      defaultBlur: 'rgba(52,125, 128, 0.5)'
+      defaultBlur: 'rgba(52,125, 128, 0.8)'
     },
     fg: {
       default: '#0C3037',
