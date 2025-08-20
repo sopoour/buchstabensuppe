@@ -5,17 +5,17 @@ const theme = {
   colors: {
     bg: {
       default: '#E0F5F6',
-      contrast: '#347D80',
+      contrast: '#0C3037',
       defaultBlur: 'rgba(52,125, 128, 0.5)'
     },
     fg: {
-      default: '#347D80',
+      default: '#0C3037',
       contrast: '#E0F5F6',
       inactive: 'rgba(255, 255, 255, 0.75)',
     },
     accent: {
-      flamingo: '#FF7875',
-      yellow: '#FFF747',
+      flamingo: '#8B2F3E',
+      yellow: '#FFA361',
     },
   },
   filters: {
