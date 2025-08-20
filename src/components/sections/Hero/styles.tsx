@@ -10,7 +10,7 @@ import { montserrat } from '@app/styles/fonts';
 const height = HEADER_HEIGHT + 'px';
 
 export const IntroContainer = styled.div`
-  background: ${({ theme }) => theme.colors.bg.contrast};
+  background: #f7fdfd;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -116,9 +116,9 @@ export const DragNote = styled.span`
 export const InfoIcon = styled(FaInfo)`
   && {
     padding: 2px !important;
-    border: 1px solid ${({ theme }) => theme.colors.fg.contrast} !important;
+    border: 1px solid ${({ theme }) => theme.colors.fg.default} !important;
     border-radius: 100px;
-    color: ${({ theme }) => theme.colors.fg.contrast};
+    color: ${({ theme }) => theme.colors.fg.default};
   }
 `;
 
