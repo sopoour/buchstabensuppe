@@ -64,7 +64,7 @@ const Name = styled(Typography)`
 `;
 
 const TicketButton = styled(Link)`
-  padding: 8px 24px;
+  padding: 4px 24px;
   border-radius: 100px;
   background-color: ${({ theme }) => theme.colors.bg.contrast};
   color: ${({ theme }) => theme.colors.fg.contrast};
