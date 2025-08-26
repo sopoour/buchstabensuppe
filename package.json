@@ -10,7 +10,14 @@
     "generate-types": "yarn graphql-code-generator --config codegen.yml -r dotenv/config"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "@mantine/core": "^8.2.5",
+    "@mantine/form": "^8.2.5",
+    "@mantine/hooks": "^8.2.5",
+    "@mantine/next": "^6.0.22",
     "@svgr/webpack": "8.1.0",
+    "copy-to-clipboard": "^3.3.3",
     "date-fns": "2.30.0",
     "graphql": "^16.11.0",
     "gsap": "3.12.2",
