@@ -52,11 +52,11 @@ export const Letter = styled(Typography)`
   font-size: 2.3rem;
   font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.accent.yellow};
+  color: ${({ theme }) => theme.colors.accent.orange};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent.flamingo};
+    color: ${({ theme }) => theme.colors.accent.red};
   }
 `;
 
@@ -68,7 +68,7 @@ export const BSLetter = styled(Letter)`
   z-index: 1;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   &:hover {
-    color: ${({ theme }) => theme.colors.accent.yellow};
+    color: ${({ theme }) => theme.colors.accent.orange};
   }
 `;
 
@@ -86,14 +86,14 @@ export const ScrollArrowContainer = styled.button`
     width: 25px !important;
     height: 25px !important;
     path {
-      fill: ${({ theme }) => theme.colors.accent.yellow};
+      fill: ${({ theme }) => theme.colors.accent.orange};
     }
   }
 
   &:hover {
     transform: scale(1.2);
     svg > path {
-      fill: ${({ theme }) => theme.colors.accent.yellow};
+      fill: ${({ theme }) => theme.colors.accent.orange};
     }
   }
 

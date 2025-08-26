@@ -41,7 +41,7 @@ const Container = styled.span<{ hoverColour?: string; size: Size }>`
       cursor: pointer;
       transform: scale(1.1);
       path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.yellow};
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.orange};
       }
     }
 

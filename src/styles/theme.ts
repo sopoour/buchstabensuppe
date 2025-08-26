@@ -14,8 +14,8 @@ const theme = {
       inactive: 'rgba(255, 255, 255, 0.75)',
     },
     accent: {
-      flamingo: '#8B2F3E',
-      yellow: '#FFA361',
+      red: '#8B2F3E',
+      orange: '#FFA361',
     },
   },
   filters: {

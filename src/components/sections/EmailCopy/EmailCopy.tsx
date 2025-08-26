@@ -9,7 +9,7 @@ const CopyEmail = styled(Typography)`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent.yellow};
+    color: ${({ theme }) => theme.colors.accent.orange};
   }
 `;
 

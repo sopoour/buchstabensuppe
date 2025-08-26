@@ -93,7 +93,7 @@ export const LogoLetter = styled.p`
   font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
   opacity: 0;
-  color: ${({ theme }) => theme.colors.accent.yellow};
+  color: ${({ theme }) => theme.colors.accent.orange};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   ${({ theme }) => theme.media('sm')`

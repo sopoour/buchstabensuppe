@@ -42,7 +42,7 @@ export const Button = styled.button`
   ${fastTransition};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent.yellow};
+    background-color: ${({ theme }) => theme.colors.accent.orange};
     color: ${({ theme }) => theme.colors.fg.default};
   }
 `;
@@ -66,12 +66,8 @@ export const Letter = styled(Typography)`
   font-size: 2.3rem;
   font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.accent.yellow};
+  color: ${({ theme }) => theme.colors.accent.orange};
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.accent.flamingo};
-  }
 `;
 
 export const ContactLinkContainer = styled(LinkContainer)`
@@ -84,7 +80,7 @@ export const ContactLinkContainer = styled(LinkContainer)`
     }
     &:hover {
       path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.yellow};
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.orange};
       }
     }
   }

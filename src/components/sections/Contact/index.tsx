@@ -33,7 +33,7 @@ const Contact: FC = () => {
     if (isDesktop) {
       letterRefs.current.forEach((el, i) => {
         if (!el) return;
-        const startX = Math.random() * window.innerWidth * 0.75;
+        const startX = Math.random() * window.innerWidth * 0.65;
         const startY = 25 - Math.random() * 80;
         // Random start point for each letter
         gsap.set(el, {
@@ -148,7 +148,7 @@ const Contact: FC = () => {
             <Typography
               fontSize="20px"
               type="montserrat"
-              color={theme.colors.accent.flamingo}
+              color={theme.colors.accent.red}
               fontWeight={600}
               as={'h3'}
             >

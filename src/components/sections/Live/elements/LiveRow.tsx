@@ -76,7 +76,7 @@ const TicketButton = styled(Link)`
   ${fastTransition};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent.yellow};
+    background-color: ${({ theme }) => theme.colors.accent.orange};
     color: ${({ theme }) => theme.colors.fg.default};
   }
 `;
@@ -91,12 +91,7 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
     <LiveItem $isPastShow={isPastShow}>
       <InfoCol>
         <Row>
-          <Location
-            fontWeight={700}
-            color={theme.colors.accent.flamingo}
-            $isUpperCase
-            type="montserrat"
-          >
+          <Location fontWeight={700} color={theme.colors.accent.red} $isUpperCase type="montserrat">
             {show.location}
           </Location>
           <Typography fontSize="12px">{show.venue}</Typography>

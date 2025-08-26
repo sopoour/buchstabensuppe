@@ -29,7 +29,7 @@ const NavigationItem = styled(Link)`
 
   &:hover,
   &.active {
-    color: ${({ theme }) => theme.colors.accent.yellow};
+    color: ${({ theme }) => theme.colors.accent.orange};
     transform: scale(1.1);
   }
 
