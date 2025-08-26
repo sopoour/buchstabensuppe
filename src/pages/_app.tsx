@@ -5,6 +5,8 @@ import { GlobalStyle } from '@app/styles/global';
 import { ThemeProvider } from 'styled-components';
 import theme from '@app/styles/theme';
 import Head from 'next/head';
+import { MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const metaDescription = 'Live Hörspiel';
@@ -25,12 +27,14 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta key="og:site_name" property="og:site_name" content="buchstabensuppe" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <MantineProvider withGlobalClasses withCssVariables>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </MantineProvider>
     </>
   );
 };

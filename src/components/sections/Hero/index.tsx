@@ -18,16 +18,7 @@ import BowlFront from './assets/bowl-front.png';
 import Typography from '@app/components/Typography/Typography';
 import theme from '@app/styles/theme';
 import useHeroAnimation from './hooks/useHeroAnimation';
-
-const genCharArray = (charA: string, charZ: string) => {
-  var a = [],
-    i = charA.charCodeAt(0),
-    j = charZ.charCodeAt(0);
-  for (; i <= j; ++i) {
-    a.push(String.fromCharCode(i));
-  }
-  return a;
-};
+import genCharArray from '@app/utils/genCharArray';
 
 const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
 
