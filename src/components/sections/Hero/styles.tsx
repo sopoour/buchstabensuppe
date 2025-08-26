@@ -53,7 +53,7 @@ export const Letter = styled(Typography)`
   font-family: ${montserrat.style.fontFamily};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.accent.yellow};
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent.flamingo};
@@ -66,6 +66,7 @@ export const BSLetter = styled(Letter)`
   top: 10px;
   left: 0;
   z-index: 1;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   &:hover {
     color: ${({ theme }) => theme.colors.accent.yellow};
   }

@@ -82,5 +82,10 @@ export const ContactLinkContainer = styled(LinkContainer)`
     path {
       fill: ${({ theme }) => theme.colors.fg.default};
     }
+    &:hover {
+      path {
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.yellow};
+      }
+    }
   }
 `;
