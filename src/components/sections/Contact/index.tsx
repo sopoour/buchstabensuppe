@@ -18,6 +18,9 @@ import {
 } from './styles';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
+import { IconLink } from '@app/types';
+
+const links: IconLink[] = [{ type: 'instagram' }, { type: 'spotify' }, { type: 'youtube' }];
 
 const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
 
@@ -151,8 +154,8 @@ const Contact: FC = () => {
             >
               Oder erreiche uns unter
             </Typography>
-            <EmailCopy email="frago.mp3.music@gmail.com" />
-            <ContactLinkContainer />
+            <EmailCopy email="kontakt@buchstabensuppe-hörspiel.de" />
+            <ContactLinkContainer iconLinks={links} />
           </Flex>
         </ContactContainer>
         <LettersLayer>
