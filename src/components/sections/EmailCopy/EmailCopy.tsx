@@ -40,6 +40,7 @@ const EmailCopy: FC<Props> = ({ email, label }) => {
         fontWeight={500}
         onClick={() => copyEmail(email)}
         onMouseLeave={() => setCopied(false)}
+        fontSize="18px"
       >
         {label && `${label}: `}
         {email}

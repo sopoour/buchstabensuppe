@@ -18,7 +18,7 @@ export const ContactContainer = styled.div`
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   padding: 32px;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.bg.default};

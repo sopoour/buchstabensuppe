@@ -34,7 +34,7 @@ const Contact: FC = () => {
       letterRefs.current.forEach((el, i) => {
         if (!el) return;
         const startX = Math.random() * window.innerWidth * 0.65;
-        const startY = 25 - Math.random() * 80;
+        const startY = 15 - Math.random() * 80;
         // Random start point for each letter
         gsap.set(el, {
           x: startX,
@@ -104,7 +104,7 @@ const Contact: FC = () => {
               placeholder="Dein Name"
               {...form.getInputProps('name')}
               withAsterisk
-              size="md"
+              size="lg"
               radius="md"
               key={form.key('name')}
             />
@@ -113,7 +113,7 @@ const Contact: FC = () => {
               placeholder="name@beispiel.com"
               {...form.getInputProps('email')}
               withAsterisk
-              size="md"
+              size="lg"
               radius="md"
               key={form.key('email')}
             />
@@ -124,7 +124,7 @@ const Contact: FC = () => {
               autosize
               {...form.getInputProps('message')}
               withAsterisk
-              size="md"
+              size="lg"
               radius="md"
             />
             <Checkbox
@@ -146,7 +146,7 @@ const Contact: FC = () => {
           </FormContainer>
           <Flex gap={'32px'} direction={'column'} align={{ base: 'center', sm: 'flex-start' }}>
             <Typography
-              fontSize="20px"
+              fontSize="24px"
               type="montserrat"
               color={theme.colors.accent.red}
               fontWeight={600}
