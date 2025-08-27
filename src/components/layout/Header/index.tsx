@@ -54,8 +54,6 @@ const Header: FC = () => {
     return () => ctx.revert();
   }, [showHeader]);
 
-  console.log(showHeader);
-
   return (
     <HeaderWrapper
       aria-label="navigation header"
