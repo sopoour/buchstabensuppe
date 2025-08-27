@@ -12,6 +12,8 @@ export default async function getGeneralContent(req: NextApiRequest, res: NextAp
                 width
                 height
               }
+              impressum
+              datenschutz
             }
           }`,
     );

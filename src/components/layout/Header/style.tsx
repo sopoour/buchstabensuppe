@@ -4,10 +4,10 @@ import LinkContainer from '@app/components/LinkContainer';
 import Navigation from '../Navigation';
 import { montserrat } from '@app/styles/fonts';
 
-export const HeaderWrapper = styled.header<{ $headerHeight: number }>`
+export const HeaderWrapper = styled.header<{ $headerHeight: number; $showHeader: boolean }>`
   display: flex;
   position: sticky;
-  opacity: 0;
+  opacity: ${({ $showHeader }) => ($showHeader ? '1' : '0')};
   top: -1px;
   z-index: 5;
   min-height: ${({ $headerHeight }) => `${$headerHeight}px`};
@@ -109,4 +109,8 @@ export const LogoLetter = styled.p`
       left: calc(50% - 132px);
        align-self: center;
   `}
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

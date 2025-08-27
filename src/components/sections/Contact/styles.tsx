@@ -73,7 +73,7 @@ export const Letter = styled(Typography)`
 export const ContactLinkContainer = styled(LinkContainer)`
   align-items: center;
   align-content: center;
-  gap: 16px !important;
+  gap: 20px !important;
   svg {
     path {
       fill: ${({ theme }) => theme.colors.fg.default};
