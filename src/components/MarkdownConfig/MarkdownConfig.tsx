@@ -2,7 +2,6 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeRaw from 'rehype-raw';
-import styles from './MarkdownConfig.module.scss';
 import { FC } from 'react';
 import styled from 'styled-components';
 
