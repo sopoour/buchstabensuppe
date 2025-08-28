@@ -69,7 +69,7 @@ const Videos: FC = () => {
         },
         scrollTrigger: {
           trigger: '#videos',
-          start: 'top 90%',
+          start: 'top 95%',
           onEnter: () => {
             tl.play();
             bounce.play();
@@ -90,7 +90,7 @@ const Videos: FC = () => {
       // Horizontal movement
       tl.to('#bobenino', {
         x: -window.innerWidth / 3, // move past the left edge
-        duration: 15,
+        duration: 20,
         ease: 'linear',
       });
     }
