@@ -89,7 +89,7 @@ const Videos: FC = () => {
 
       // Horizontal movement
       tl.to('#bobenino', {
-        x: -window.innerWidth / 4, // move past the left edge
+        x: -window.innerWidth / 3, // move past the left edge
         duration: 15,
         ease: 'linear',
       });
