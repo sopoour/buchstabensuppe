@@ -94,8 +94,6 @@ const Videos: FC = () => {
         ease: 'linear',
       });
     }
-
-    console.log(window.innerWidth);
   }, [isDesktop]);
 
   return (
