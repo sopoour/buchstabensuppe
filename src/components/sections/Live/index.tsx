@@ -92,7 +92,7 @@ const Live: FC = () => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: '#live',
-            start: 'top 20%',
+            start: 'top 50%',
             end: 'bottom 90%',
             scrub: 2,
           },
