@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Link } from 'react-scroll';
 import { styled } from 'styled-components';
 
-const items = ['Live', 'Über uns', 'Hörproben', 'Videos', 'Kontakt'];
+const items = ['Über uns', 'Live', 'Hörproben', 'Videos', 'Kontakt'];
 
 const NavigationWrapper = styled.nav`
   ${flexColumn};
@@ -61,7 +61,7 @@ const Navigation: FC<Props> = ({ className, onClick }) => (
           spy
           smooth
           duration={700}
-          offset={-50}
+          offset={-15}
           href={`#${navItemName === 'über-uns' ? 'about' : navItemName}`}
           onClick={onClick}
         >
