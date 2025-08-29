@@ -65,7 +65,7 @@ const Footer: FC = () => {
           <Typography>© {currentYear} Buchstabensuppe.</Typography>
           <Typography>
             Entwickelt von{' '}
-            <Anchor href="https://www.sophiaauer.me/" target="_blank">
+            <Anchor href="https://www.fioauer.com/" target="_blank">
               Fio Auer
             </Anchor>{' '}
           </Typography>
