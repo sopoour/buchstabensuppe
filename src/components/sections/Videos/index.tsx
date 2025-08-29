@@ -69,7 +69,7 @@ const Videos: FC = () => {
         },
         scrollTrigger: {
           trigger: '#videos',
-          start: 'top 95%',
+          start: 'top 120%',
           onEnter: () => {
             tl.play();
             bounce.play();
