@@ -15,6 +15,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
 import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
+import { VisuallyHidden } from '@mantine/core';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,6 +115,7 @@ const Live: FC = () => {
   return (
     <Section id="live" $bgColor="#CAE8E9">
       <LiveContainer>
+        <VisuallyHidden component={'h2'}>Live</VisuallyHidden>
         {visibleShows?.map((live) => (
           <LiveRow key={live.venue} show={live} isPastShow={normalizeDate(live.date) < today} />
         ))}

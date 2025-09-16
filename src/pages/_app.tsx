@@ -24,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <meta charSet="utf-8" />
         <meta key="name" itemProp="name" content={metaTitle} />
+        <title key="title" itemProp="title" content={metaTitle} />
         <meta key="description" name="description" content={metaDescription} />
         <meta key="og:title" property="og:title" content={metaTitle} />
         <meta key="og:type" property="og:type" content="website" />

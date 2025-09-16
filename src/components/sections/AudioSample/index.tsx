@@ -4,6 +4,7 @@ import { fetcher } from '@app/hooks/fetch/useFetch';
 import { useMedia } from '@app/hooks/useMedia';
 import { SpotifySample } from '@app/services/graphql/types';
 import { Breakpoints } from '@app/styles/media';
+import { VisuallyHidden } from '@mantine/core';
 import { FC } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
@@ -28,6 +29,7 @@ const AudioSample: FC = () => {
   return (
     <Section id="hörproben" $bgColor="#F4FAFA">
       <SampleContainer>
+        <VisuallyHidden component={'h2'}>Hörproben</VisuallyHidden>
         {data?.map((embed) => (
           <iframe
             key={embed.title}

@@ -52,9 +52,16 @@ a {
   text-decoration: none;
   font-size: inherit;
   outline: none;
-  :focus {
-    outline: 3px solid ${theme.colors.accent.red}
+&:focus {
+    outline: 3px solid ${({ theme }) => theme.colors.accent.red};
+    outline-offset: 1px;
+    border-radius: 4px;
   }
+  &:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
 }
 button {
   font-family: ${karla.style.fontFamily};
@@ -70,7 +77,7 @@ p {
   font-size: 16px;
   line-height: 1.25;
   :focus {
-    outline: 3px solid ${theme.colors.accent.red}
+    outline: 3px solid ${({ theme }) => theme.colors.accent.red};
   }
 }
 

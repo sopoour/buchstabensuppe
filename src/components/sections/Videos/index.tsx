@@ -11,6 +11,7 @@ import Image from 'next/image';
 import BoBenino from '@app/assets/bobenino.png';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { VisuallyHidden } from '@mantine/core';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,6 +100,7 @@ const Videos: FC = () => {
   return (
     <Section id="videos">
       <>
+        <VisuallyHidden component={'h2'}>Videos</VisuallyHidden>
         <SampleContainer>
           {data?.map((embed) => (
             <iframe

@@ -14,6 +14,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { swrFetchObject } from '@app/hooks/fetch/swrConstants';
 import Skeleton from 'react-loading-skeleton';
+import { VisuallyHidden } from '@mantine/core';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,6 +107,7 @@ const About: FC = () => {
   return (
     <Section id="about">
       <AboutContainer>
+        <VisuallyHidden component={'h2'}>Über uns</VisuallyHidden>
         <AboutImageWrapper>
           {data?.aboutImage?.url ? (
             <AboutImage

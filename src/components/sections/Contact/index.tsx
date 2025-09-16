@@ -4,7 +4,7 @@ import theme from '@app/styles/theme';
 import { Checkbox, Group, Textarea, TextInput, VisuallyHidden, Flex } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { FC, useEffect, useRef, useState } from 'react';
-import EmailCopy from '../EmailCopy/EmailCopy';
+import EmailCopy from '../../EmailCopy/EmailCopy';
 import Typography from '@app/components/Typography/Typography';
 import { gsap } from 'gsap';
 import genCharArray from '@app/utils/genCharArray';
