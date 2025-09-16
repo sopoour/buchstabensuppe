@@ -72,7 +72,7 @@ const TicketButton = styled(Link)`
   font-weight: 600;
   width: max-content;
   height: max-content;
-  justify-self: flex-end;
+  justify-self: center;
   ${fastTransition};
 
   &:hover {
@@ -105,7 +105,14 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
         {show.venue}
       </Name>
 
-      {show.ticketLink && <TicketButton href={show.ticketLink}>Ticket</TicketButton>}
+      {(show.ticketLink || show.ticketNote) &&
+        (show.ticketLink ? (
+          <TicketButton href={show.ticketLink}>Ticket</TicketButton>
+        ) : (
+          <Typography $textalign="end" style={{ justifySelf: 'center' }}>
+            {show.ticketNote}
+          </Typography>
+        ))}
     </LiveItem>
   );
 };
