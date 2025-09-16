@@ -94,7 +94,7 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
           <Location fontWeight={700} color={theme.colors.accent.red} $isUpperCase type="montserrat">
             {show.location}
           </Location>
-          <Typography fontSize="12px">{show.venue}</Typography>
+          {show.name && <Typography fontSize="12px">{show.name}</Typography>}
         </Row>
         <Row>
           <Typography fontWeight={700}>{ISOToDate(show.date)},</Typography>
@@ -102,7 +102,7 @@ const LiveRow: FC<Props> = ({ show, isPastShow = false }) => {
         </Row>
       </InfoCol>
       <Name fontSize="28px" fontWeight={500}>
-        {show.name}
+        {show.venue}
       </Name>
 
       {show.ticketLink && <TicketButton href={show.ticketLink}>Ticket</TicketButton>}
