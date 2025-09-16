@@ -138,10 +138,14 @@ const Contact: FC = () => {
             </Group>
 
             {status === 'sent' && (
-              <Typography color={theme.colors.fg.default}>Message sent successfully!</Typography>
+              <Typography color={theme.colors.fg.default}>
+                Nachricht erfolgreich gesendet!
+              </Typography>
             )}
             {status === 'error' && (
-              <Typography color="red">Something went wrong. Please try again.</Typography>
+              <Typography color="red">
+                Etwas ist schief gelaufen. Bitte versuche es noch einmal.
+              </Typography>
             )}
           </FormContainer>
           <Flex gap={'32px'} direction={'column'} align={{ base: 'center', sm: 'flex-start' }}>
