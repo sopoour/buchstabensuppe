@@ -84,6 +84,7 @@ export const DesktopLinkContainer = styled(LinkContainer)`
     display: none;
     ${({ theme }) => theme.media('sm')`
        display: flex;
+       gap: 32px;
   `}
   }
 `;

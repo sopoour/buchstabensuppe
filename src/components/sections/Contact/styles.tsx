@@ -76,11 +76,11 @@ export const ContactLinkContainer = styled(LinkContainer)`
   gap: 20px !important;
   svg {
     path {
-      fill: ${({ theme }) => theme.colors.fg.default};
+      fill: ${({ theme }) => theme.colors.fg.default} !important;
     }
     &:hover {
       path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.orange};
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.orange} !important;
       }
     }
   }

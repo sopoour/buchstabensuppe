@@ -20,7 +20,12 @@ import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
 import { IconLink } from '@app/types';
 
-const links: IconLink[] = [{ type: 'instagram' }, { type: 'spotify' }, { type: 'youtube' }];
+const links: IconLink[] = [
+  { type: 'instagram' },
+  { type: 'tidal' },
+  { type: 'spotify' },
+  { type: 'youtube' },
+];
 
 const LETTERS = [...genCharArray('a', 'z'), ...genCharArray('a', 'z'), ...genCharArray('a', 'z')];
 
@@ -46,7 +51,7 @@ const Contact: FC = () => {
         gsap.to(el, {
           duration: 3 + Math.random(),
           x: `+=${Math.random() * 50 - 10}`,
-          y: `+=${Math.random() * 70 - 30}`,
+          y: `+=${Math.random() * 80 - 30}`,
           rotation: `+=${Math.random() * 30 - 15}`,
           repeat: -1,
           yoyo: true,

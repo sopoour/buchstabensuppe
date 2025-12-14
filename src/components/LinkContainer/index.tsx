@@ -4,11 +4,13 @@ import { css, styled } from 'styled-components';
 import Link from 'next/link';
 import { IconLink } from '@app/types';
 import { FaEnvelope, FaInstagram, FaLink, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa';
+import { SiTidal } from 'react-icons/si';
 
 type Size = 'small' | 'medium' | 'big';
 
 export const linksDefault: IconLink[] = [
   { type: 'instagram' },
+  { type: 'tidal' },
   { type: 'spotify' },
   { type: 'youtube' },
   { type: 'email' },
@@ -29,7 +31,7 @@ const getSize = (size: Size) => {
 
 const Container = styled.span<{ hoverColour?: string; size: Size }>`
   ${flexRow};
-  gap: 32px;
+  gap: 20px;
   svg {
     width: ${({ size }) => getSize(size)};
     height: ${({ size }) => getSize(size)};
@@ -110,6 +112,12 @@ const LinkContainer: FC<Props> = ({
               id: 'youtube',
               icon: <FaYoutube />,
               link: 'https://www.youtube.com/@Buchstabensuppe-h5h',
+            };
+          case 'tidal':
+            return {
+              id: 'tidal',
+              icon: <SiTidal />,
+              link: 'https://tidal.com/artist/47454902',
             };
           case 'link':
             return { id: icon.id ?? 'external link', icon: <FaLink />, link: icon.link };
