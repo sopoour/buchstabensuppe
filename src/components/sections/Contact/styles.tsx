@@ -31,7 +31,7 @@ export const FormContainer = styled.form`
 
 export const Button = styled.button`
   padding: 4px 18px;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.bg.contrast};
   color: ${({ theme }) => theme.colors.fg.contrast};
   font-size: 16px;
@@ -39,6 +39,7 @@ export const Button = styled.button`
   width: max-content;
   height: max-content;
   justify-self: flex-end;
+  width: 100%;
   ${fastTransition};
 
   &:hover {
