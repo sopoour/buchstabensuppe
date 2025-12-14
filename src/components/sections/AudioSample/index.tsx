@@ -34,7 +34,7 @@ const AudioSample: FC = () => {
           <iframe
             key={embed.title}
             style={{ borderRadius: '12px' }}
-            src={`${embed.sample}`}
+            src={`${embed.sample}?layout=gridify`}
             width="100%"
             height={isDesktop ? '232' : '152'}
             frameBorder="0"
