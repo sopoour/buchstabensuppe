@@ -163,7 +163,7 @@ const Contact: FC = () => {
             >
               Oder erreiche uns unter
             </Typography>
-            <EmailCopy email="kontakt@buchstabensuppe-hörspiel.de" />
+            <EmailCopy email="kontakt@buchstabensuppe-hoerspiel.de" />
             <ContactLinkContainer iconLinks={links} />
           </Flex>
         </ContactContainer>
