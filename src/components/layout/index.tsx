@@ -44,21 +44,19 @@ type Props = {
 const Layout: FC<Props> = ({ children }) => {
   const { close } = useSidebar((state) => state);
   return (
-    <>
-      <Root>
-        <Sidebar>
-          <Logo>buchstabensuppe</Logo>
-          <NavigationMobile onClick={close} />
-          <LinkContainerMobile />
-        </Sidebar>
+    <Root>
+      <Sidebar>
+        <Logo>buchstabensuppe</Logo>
+        <NavigationMobile onClick={close} />
+        <LinkContainerMobile />
+      </Sidebar>
 
-        <MainLayout>
-          <Header />
-          {children}
-        </MainLayout>
-        <Footer />
-      </Root>
-    </>
+      <MainLayout>
+        <Header />
+        {children}
+      </MainLayout>
+      <Footer />
+    </Root>
   );
 };
 

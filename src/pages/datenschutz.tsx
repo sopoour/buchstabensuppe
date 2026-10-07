@@ -1,5 +1,5 @@
 import Section from '@app/components/layout/Section';
-import MarkdownConfig from '@app/components/MarkdownConfig/MarkdownConfig';
+import MarkdownConfig from '@app/components/MarkdownConfig';
 import { fetcher } from '@app/hooks/fetch/useFetch';
 import { GeneralContent } from '@app/services/graphql/types';
 import { FC } from 'react';
