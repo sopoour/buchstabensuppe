@@ -2,10 +2,10 @@
   <img alt="Logo" src="https://raw.githubusercontent.com/sopoour/buchstabensuppe/main/src/assets/logo.png" width="200" />
 </div>
 <h1 align="center">
- buchstabensuppe website - buchstabensuppe-hörspiel.de
+ buchstabensuppe website - buchstabensuppe-hoerspiel.de
 </h1>
 <p align="center">
-  A website for a live audio drama project called "buchstabensuppe" in Germany,  <a href="https://buchstabensuppe-hörspiel.de" target="_blank">buchstabensuppe-hörspiel.de</a> built with Next.js and hosted with Vercel
+  A website for a live audio drama project called "buchstabensuppe" in Germany,  <a href="https://buchstabensuppe-hoerspiel.de" target="_blank">buchstabensuppe-hoerspiel.de</a> built with Next.js and hosted with Vercel
 </p>
 
 ![demo](https://raw.githubusercontent.com/sopoour/buchstabensuppe/main/src/assets/demo.png)
